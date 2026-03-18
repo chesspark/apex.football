@@ -40,7 +40,8 @@ export default function Globe3D() {
   const allWithCoords = matches.filter((m) => m.stadium_lat && m.stadium_lng);
 
   useEffect(() => {
-    if (!canvasRef.current) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
     const markers = allWithCoords.map((m) => {
       const isLive = m.status === "live" || m.status === "ht";
@@ -50,16 +51,20 @@ export default function Globe3D() {
       };
     });
 
-    let width = 0;
+    let width = canvas.offsetWidth || 300;
     const onResize = () => {
       if (canvasRef.current) {
-        width = canvasRef.current.offsetWidth;
+        width = canvasRef.current.offsetWidth || 300;
       }
     };
     onResize();
     window.addEventListener("resize", onResize);
 
-    const globe = createGlobe(canvasRef.current, {
+    if (width < 10) return;
+
+    let globe: { destroy: () => void };
+    try {
+      globe = createGlobe(canvas, {
       devicePixelRatio: 2,
       width: width * 2,
       height: width * 2,
@@ -82,6 +87,9 @@ export default function Globe3D() {
         state.height = width * 2;
       },
     });
+    } catch {
+      return () => window.removeEventListener("resize", onResize);
+    }
 
     return () => {
       globe.destroy();
