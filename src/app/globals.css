@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-green: var(--accent-green);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border-clr);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root,
+[data-theme="light"] {
+  --background: #FFFFFF;
+  --foreground: #111111;
+  --accent: #E6B800;
+  --accent-green: #8FBF8F;
+  --surface: #F5FAF5;
+  --surface-hover: #EAF5EA;
+  --border-clr: rgba(0, 0, 0, 0.08);
+  --muted: #555555;
+}
+
+[data-theme="dark"] {
+  --background: #0A0A0A;
+  --foreground: #ededed;
+  --accent: #FFD700;
+  --accent-green: #A8D8A8;
+  --surface: rgba(24, 24, 27, 0.5);
+  --surface-hover: rgba(39, 39, 42, 0.5);
+  --border-clr: rgba(255, 255, 255, 0.05);
+  --muted: #71717a;
+}
+
+[data-theme="color"] {
+  --background: #0a0a1a;
+  --foreground: #ededed;
+  --accent: #FFD700;
+  --accent-green: #7BEDA8;
+  --surface: rgba(30, 25, 60, 0.6);
+  --surface-hover: rgba(50, 40, 90, 0.6);
+  --border-clr: rgba(255, 215, 0, 0.08);
+  --muted: #9090b0;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+[dir="rtl"] {
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+/* ─── Animations ─── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fade-in-up 0.6s ease-out; }
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-in-right { animation: slide-in-right 0.5s ease-out; }
+
+/* ─── Rotating Earth ─── */
+@keyframes spin-globe {
+  from { background-position-x: 0; }
+  to { background-position-x: -600px; }
+}
+.globe {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%,
+    #3a9a5c 0%, #2d7d46 20%, #1b6030 40%,
+    #145828 50%, #0e4620 60%, #0b3a1a 70%,
+    #1a5c30 80%, #2d7d46 100%);
+  box-shadow:
+    inset -30px -30px 60px rgba(0,0,0,0.6),
+    inset 10px 10px 30px rgba(168,216,168,0.2),
+    0 0 80px rgba(255,215,0,0.15),
+    0 0 160px rgba(168,216,168,0.08);
+  position: relative;
+  overflow: hidden;
+}
+.globe::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse 50% 20% at 20% 30%, rgba(34,139,34,0.5) 0%, transparent 100%),
+    radial-gradient(ellipse 35% 40% at 65% 55%, rgba(34,139,34,0.4) 0%, transparent 100%),
+    radial-gradient(ellipse 20% 25% at 40% 70%, rgba(34,139,34,0.3) 0%, transparent 100%),
+    radial-gradient(ellipse 30% 15% at 80% 25%, rgba(34,139,34,0.3) 0%, transparent 100%),
+    radial-gradient(circle at 50% 50%, rgba(0,100,200,0.15) 0%, transparent 70%);
+  animation: spin-globe 12s linear infinite;
+}
+.globe::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15) 0%, transparent 50%);
+}
+
+/* ─── Fireworks ─── */
+@keyframes firework-rise {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-200px) scale(0.5); opacity: 0; }
+}
+@keyframes firework-burst {
+  0% { transform: scale(0); opacity: 1; }
+  50% { opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+@keyframes spark {
+  0% { transform: translate(0,0) scale(1); opacity: 1; }
+  100% { opacity: 0; }
+}
+.firework-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.firework-spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: spark 1.5s ease-out forwards;
+}
+
+/* ─── Ticker ─── */
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-ticker { animation: ticker-scroll 30s linear infinite; }
+
+/* ─── Shimmer ─── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent 25%, rgba(255,215,0,0.08) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}

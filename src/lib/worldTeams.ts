@@ -1,0 +1,240 @@
+export interface TeamInfo {
+  name: string;
+  primary: string;
+  secondary: string;
+}
+
+export interface CountryTeams {
+  flag: string;
+  continent: string;
+  teams: TeamInfo[];
+}
+
+type TeamsMap = Record<string, CountryTeams>;
+
+function t(name: string, primary: string, secondary: string): TeamInfo {
+  return { name, primary, secondary };
+}
+
+export const worldTeams: TeamsMap = {
+  // ═══════════════ AFRICA ═══════════════
+  "Algeria": { flag: "🇩🇿", continent: "Africa", teams: [t("MC Alger","#008000","#FFFFFF"), t("JS Kabylie","#FFFF00","#008000"), t("USM Alger","#FF0000","#000000"), t("CR Belouizdad","#FF0000","#FFFFFF")] },
+  "Morocco": { flag: "🇲🇦", continent: "Africa", teams: [t("Wydad AC","#FF0000","#FFFFFF"), t("Raja CA","#008000","#FFFFFF"), t("FAR Rabat","#006400","#FFFFFF"), t("AS FAR","#FFD700","#008000"), t("RS Berkane","#FF8C00","#000000"), t("FUS Rabat","#FF0000","#000000")] },
+  "Egypt": { flag: "🇪🇬", continent: "Africa", teams: [t("Al Ahly","#FF0000","#FFFFFF"), t("Zamalek","#FFFFFF","#FF0000"), t("Pyramids FC","#00BFFF","#FFFFFF"), t("Ismaily","#FFD700","#000000")] },
+  "Tunisia": { flag: "🇹🇳", continent: "Africa", teams: [t("Espérance de Tunis","#FFD700","#FF0000"), t("Club Africain","#FF0000","#FFFFFF"), t("Étoile du Sahel","#FF0000","#FFFFFF")] },
+  "Nigeria": { flag: "🇳🇬", continent: "Africa", teams: [t("Enyimba FC","#0000FF","#FFFFFF"), t("Kano Pillars","#FF0000","#FFFFFF"), t("Rangers International","#0000FF","#FFFFFF")] },
+  "Cameroon": { flag: "🇨🇲", continent: "Africa", teams: [t("Canon Yaoundé","#008000","#FFD700"), t("Coton Sport","#FFFFFF","#008000"), t("Union Douala","#0000FF","#FFFFFF")] },
+  "Senegal": { flag: "🇸🇳", continent: "Africa", teams: [t("ASC Jaraaf","#FF0000","#FFFFFF"), t("Casa Sport","#008000","#FFD700"), t("Génération Foot","#FF0000","#000000")] },
+  "Ivory Coast": { flag: "🇨🇮", continent: "Africa", teams: [t("ASEC Mimosas","#FFD700","#000000"), t("Africa Sports","#008000","#FFFFFF"), t("Stade d'Abidjan","#FF0000","#FFFFFF")] },
+  "Ghana": { flag: "🇬🇭", continent: "Africa", teams: [t("Asante Kotoko","#FF0000","#FFD700"), t("Hearts of Oak","#0000FF","#FFD700"), t("Medeama SC","#FFD700","#000000")] },
+  "South Africa": { flag: "🇿🇦", continent: "Africa", teams: [t("Kaizer Chiefs","#FFD700","#000000"), t("Orlando Pirates","#000000","#FFFFFF"), t("Mamelodi Sundowns","#FFD700","#008000")] },
+  "DR Congo": { flag: "🇨🇩", continent: "Africa", teams: [t("TP Mazembe","#000000","#FFFFFF"), t("AS Vita Club","#000000","#FFD700")] },
+  "Tanzania": { flag: "🇹🇿", continent: "Africa", teams: [t("Simba SC","#FF0000","#FFD700"), t("Young Africans","#FFD700","#008000")] },
+  "Kenya": { flag: "🇰🇪", continent: "Africa", teams: [t("Gor Mahia","#008000","#FFFFFF"), t("AFC Leopards","#0000FF","#FFFFFF")] },
+  "Ethiopia": { flag: "🇪🇹", continent: "Africa", teams: [t("St. George SA","#FF0000","#FFFFFF"), t("Ethiopian Coffee SC","#8B4513","#FFFFFF")] },
+  "Sudan": { flag: "🇸🇩", continent: "Africa", teams: [t("Al-Hilal Omdurman","#0000FF","#FFFFFF"), t("Al-Merrikh","#FF0000","#FFD700")] },
+  "Uganda": { flag: "🇺🇬", continent: "Africa", teams: [t("KCCA FC","#FFD700","#000000"), t("Vipers SC","#800080","#FFD700")] },
+  "Mozambique": { flag: "🇲🇿", continent: "Africa", teams: [t("Ferroviário Maputo","#FF0000","#000000"), t("CD Maxaquene","#FF0000","#FFFFFF")] },
+  "Zambia": { flag: "🇿🇲", continent: "Africa", teams: [t("Zesco United","#008000","#FFFFFF"), t("Nkana FC","#FF0000","#FFFFFF")] },
+  "Zimbabwe": { flag: "🇿🇼", continent: "Africa", teams: [t("Dynamos FC","#0000FF","#FFFFFF"), t("Highlanders FC","#000000","#FFFFFF")] },
+  "Angola": { flag: "🇦🇴", continent: "Africa", teams: [t("Petro de Luanda","#FF0000","#000000"), t("CD Primeiro de Agosto","#FF0000","#FFD700")] },
+  "Mali": { flag: "🇲🇱", continent: "Africa", teams: [t("Stade Malien","#FFFFFF","#FF0000"), t("Djoliba AC","#FF0000","#FFFFFF")] },
+  "Burkina Faso": { flag: "🇧🇫", continent: "Africa", teams: [t("ASFA Yennenga","#008000","#FFFFFF"), t("Étoile Filante","#FF0000","#FFFFFF")] },
+  "Guinea": { flag: "🇬🇳", continent: "Africa", teams: [t("Horoya AC","#FF0000","#FFFFFF"), t("AS Kaloum Star","#0000FF","#FFFFFF")] },
+  "Rwanda": { flag: "🇷🇼", continent: "Africa", teams: [t("APR FC","#008000","#FFD700"), t("Rayon Sports","#0000FF","#FFFFFF")] },
+  "Benin": { flag: "🇧🇯", continent: "Africa", teams: [t("ASVO Cotonou","#FFD700","#008000")] },
+  "Libya": { flag: "🇱🇾", continent: "Africa", teams: [t("Al-Ahli Tripoli","#008000","#FFFFFF"), t("Al-Ittihad Tripoli","#FF8C00","#000000")] },
+  "Gabon": { flag: "🇬🇦", continent: "Africa", teams: [t("CF Mounana","#008000","#FFD700")] },
+  "Togo": { flag: "🇹🇬", continent: "Africa", teams: [t("Étoile Filante Lomé","#FF0000","#FFFFFF")] },
+  "Niger": { flag: "🇳🇪", continent: "Africa", teams: [t("AS Douanes Niamey","#008000","#FFFFFF")] },
+  "Madagascar": { flag: "🇲🇬", continent: "Africa", teams: [t("CNaPS Sport","#0000FF","#FFFFFF")] },
+  "Sierra Leone": { flag: "🇸🇱", continent: "Africa", teams: [t("East End Lions","#0000FF","#FFFFFF")] },
+  "Liberia": { flag: "🇱🇷", continent: "Africa", teams: [t("LISCR FC","#0000FF","#FFFFFF")] },
+  "Mauritania": { flag: "🇲🇷", continent: "Africa", teams: [t("FC Nouadhibou","#008000","#FFFFFF")] },
+  "Cape Verde": { flag: "🇨🇻", continent: "Africa", teams: [t("CS Mindelense","#0000FF","#FFFFFF")] },
+  "Equatorial Guinea": { flag: "🇬🇶", continent: "Africa", teams: [t("CCD Elas de Malabo","#008000","#FFFFFF")] },
+  "Central African Republic": { flag: "🇨🇫", continent: "Africa", teams: [t("AS Tempête Mocaf","#0000FF","#FF0000")] },
+  "Chad": { flag: "🇹🇩", continent: "Africa", teams: [t("Gazelle FC","#FFD700","#008000")] },
+  "Eritrea": { flag: "🇪🇷", continent: "Africa", teams: [t("Red Sea FC","#FF0000","#0000FF")] },
+  "Botswana": { flag: "🇧🇼", continent: "Africa", teams: [t("Township Rollers","#0000FF","#FFFFFF")] },
+  "Namibia": { flag: "🇳🇦", continent: "Africa", teams: [t("Black Africa","#008000","#FFFFFF")] },
+  "Malawi": { flag: "🇲🇼", continent: "Africa", teams: [t("Nyasa Big Bullets","#FF0000","#000000")] },
+  "Comoros": { flag: "🇰🇲", continent: "Africa", teams: [t("Fomboni FC","#008000","#FFFFFF")] },
+  "Mauritius": { flag: "🇲🇺", continent: "Africa", teams: [t("Curepipe Starlight","#0000FF","#FFD700")] },
+  "São Tomé": { flag: "🇸🇹", continent: "Africa", teams: [t("UDRA","#FFD700","#008000")] },
+  "Seychelles": { flag: "🇸🇨", continent: "Africa", teams: [t("St. Michel United","#0000FF","#FFFFFF")] },
+  "Lesotho": { flag: "🇱🇸", continent: "Africa", teams: [t("Matlama FC","#FFD700","#000000")] },
+  "Eswatini": { flag: "🇸🇿", continent: "Africa", teams: [t("Mbabane Highlanders","#FF0000","#000000")] },
+  "Somalia": { flag: "🇸🇴", continent: "Africa", teams: [t("Elman FC","#0000FF","#FFFFFF")] },
+  "Burundi": { flag: "🇧🇮", continent: "Africa", teams: [t("Vital'O FC","#008000","#FFFFFF")] },
+  "Gambia": { flag: "🇬🇲", continent: "Africa", teams: [t("Real de Banjul","#FF0000","#FFFFFF")] },
+  "Djibouti": { flag: "🇩🇯", continent: "Africa", teams: [t("AS Arta/Solar7","#0000FF","#FFFFFF")] },
+  "Guinea-Bissau": { flag: "🇬🇼", continent: "Africa", teams: [t("Sporting Bissau","#008000","#FFFFFF")] },
+  "South Sudan": { flag: "🇸🇸", continent: "Africa", teams: [t("Al-Merreikh Bentiu","#FF0000","#FFFFFF")] },
+  "Congo": { flag: "🇨🇬", continent: "Africa", teams: [t("AC Léopards","#008000","#FFFFFF")] },
+
+  // ═══════════════ EUROPE ═══════════════
+  "England": { flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", continent: "Europe", teams: [t("Manchester United","#DA291C","#FFFFFF"), t("Liverpool","#C8102E","#FFFFFF"), t("Arsenal","#EF0107","#FFFFFF"), t("Chelsea","#034694","#FFFFFF"), t("Manchester City","#6CABDD","#FFFFFF"), t("Tottenham","#132257","#FFFFFF"), t("Newcastle United","#241F20","#FFFFFF"), t("Aston Villa","#670E36","#95BFE5"), t("West Ham","#7A263A","#1BB1E7")] },
+  "Spain": { flag: "🇪🇸", continent: "Europe", teams: [t("Real Madrid","#FFFFFF","#FFD700"), t("FC Barcelona","#A50044","#004D98"), t("Atlético Madrid","#CE3524","#FFFFFF"), t("Sevilla","#FFFFFF","#FF0000"), t("Real Betis","#008000","#FFFFFF"), t("Valencia","#FFFFFF","#FF8C00"), t("Athletic Bilbao","#EE2523","#FFFFFF"), t("Real Sociedad","#003DA5","#FFFFFF")] },
+  "Germany": { flag: "🇩🇪", continent: "Europe", teams: [t("Bayern Munich","#DC052D","#FFFFFF"), t("Borussia Dortmund","#FDE100","#000000"), t("RB Leipzig","#DD0741","#FFFFFF"), t("Bayer Leverkusen","#E32221","#000000"), t("Eintracht Frankfurt","#000000","#FF0000")] },
+  "Italy": { flag: "🇮🇹", continent: "Europe", teams: [t("Juventus","#000000","#FFFFFF"), t("AC Milan","#FB090B","#000000"), t("Inter Milan","#0068A8","#000000"), t("SSC Napoli","#009FE3","#FFFFFF"), t("AS Roma","#8E1F2F","#F0BC42"), t("Lazio","#87D8F7","#FFFFFF")] },
+  "France": { flag: "🇫🇷", continent: "Europe", teams: [t("Paris Saint-Germain","#004170","#FF0000"), t("Olympique Marseille","#2FAEE0","#FFFFFF"), t("Olympique Lyon","#FFFFFF","#0000FF"), t("AS Monaco","#FF0000","#FFFFFF"), t("LOSC Lille","#E3051B","#FFFFFF")] },
+  "Portugal": { flag: "🇵🇹", continent: "Europe", teams: [t("SL Benfica","#FF0000","#FFFFFF"), t("FC Porto","#003DA5","#FFFFFF"), t("Sporting CP","#008000","#FFFFFF"), t("SC Braga","#FF0000","#FFFFFF")] },
+  "Netherlands": { flag: "🇳🇱", continent: "Europe", teams: [t("Ajax","#FFFFFF","#FF0000"), t("PSV Eindhoven","#FF0000","#FFFFFF"), t("Feyenoord","#FF0000","#FFFFFF"), t("AZ Alkmaar","#FF0000","#FFFFFF")] },
+  "Belgium": { flag: "🇧🇪", continent: "Europe", teams: [t("Club Brugge","#0000FF","#000000"), t("RSC Anderlecht","#660099","#FFFFFF"), t("KRC Genk","#0000FF","#FFFFFF")] },
+  "Turkey": { flag: "🇹🇷", continent: "Europe", teams: [t("Galatasaray","#FDB913","#FF0000"), t("Fenerbahçe","#FFED00","#00205B"), t("Beşiktaş","#000000","#FFFFFF"), t("Trabzonspor","#6B0D1B","#0C3A5D")] },
+  "Scotland": { flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", continent: "Europe", teams: [t("Celtic","#008000","#FFFFFF"), t("Rangers","#0000FF","#FFFFFF")] },
+  "Ukraine": { flag: "🇺🇦", continent: "Europe", teams: [t("Shakhtar Donetsk","#FF4500","#000000"), t("Dynamo Kyiv","#FFFFFF","#0000FF")] },
+  "Russia": { flag: "🇷🇺", continent: "Europe", teams: [t("Spartak Moscow","#FF0000","#FFFFFF"), t("Zenit St. Petersburg","#0000FF","#FFFFFF"), t("CSKA Moscow","#FF0000","#0000FF")] },
+  "Greece": { flag: "🇬🇷", continent: "Europe", teams: [t("Olympiacos","#FF0000","#FFFFFF"), t("Panathinaikos","#008000","#FFFFFF"), t("AEK Athens","#FFD700","#000000")] },
+  "Croatia": { flag: "🇭🇷", continent: "Europe", teams: [t("Dinamo Zagreb","#0000FF","#FFFFFF"), t("Hajduk Split","#FFFFFF","#0000FF")] },
+  "Serbia": { flag: "🇷🇸", continent: "Europe", teams: [t("Red Star Belgrade","#FF0000","#FFFFFF"), t("Partizan","#000000","#FFFFFF")] },
+  "Switzerland": { flag: "🇨🇭", continent: "Europe", teams: [t("BSC Young Boys","#FFD700","#000000"), t("FC Basel","#FF0000","#0000FF")] },
+  "Austria": { flag: "🇦🇹", continent: "Europe", teams: [t("RB Salzburg","#FF0000","#FFFFFF"), t("Rapid Wien","#008000","#FFFFFF")] },
+  "Czech Republic": { flag: "🇨🇿", continent: "Europe", teams: [t("Sparta Prague","#8B0000","#FFFFFF"), t("Slavia Prague","#FF0000","#FFFFFF")] },
+  "Poland": { flag: "🇵🇱", continent: "Europe", teams: [t("Legia Warsaw","#008000","#FFFFFF"), t("Lech Poznań","#0000FF","#FFFFFF")] },
+  "Denmark": { flag: "🇩🇰", continent: "Europe", teams: [t("FC Copenhagen","#FFFFFF","#000000"), t("FC Midtjylland","#FF0000","#000000")] },
+  "Sweden": { flag: "🇸🇪", continent: "Europe", teams: [t("Malmö FF","#87CEEB","#FFFFFF"), t("AIK","#000000","#FFD700")] },
+  "Norway": { flag: "🇳🇴", continent: "Europe", teams: [t("Rosenborg BK","#000000","#FFFFFF"), t("Bodø/Glimt","#FFD700","#000000")] },
+  "Romania": { flag: "🇷🇴", continent: "Europe", teams: [t("FCSB","#FF0000","#0000FF"), t("CFR Cluj","#800020","#FFFFFF")] },
+  "Hungary": { flag: "🇭🇺", continent: "Europe", teams: [t("Ferencváros","#008000","#FFFFFF"), t("MOL Fehérvár","#FF0000","#0000FF")] },
+  "Bulgaria": { flag: "🇧🇬", continent: "Europe", teams: [t("Ludogorets Razgrad","#008000","#FFFFFF"), t("CSKA Sofia","#FF0000","#FFFFFF")] },
+  "Finland": { flag: "🇫🇮", continent: "Europe", teams: [t("HJK Helsinki","#0000FF","#FFFFFF")] },
+  "Iceland": { flag: "🇮🇸", continent: "Europe", teams: [t("Valur Reykjavík","#FF0000","#FFFFFF")] },
+  "Wales": { flag: "🏴󠁧󠁢󠁷󠁬󠁳󠁿", continent: "Europe", teams: [t("The New Saints","#008000","#FFFFFF")] },
+  "Ireland": { flag: "🇮🇪", continent: "Europe", teams: [t("Shamrock Rovers","#008000","#FFFFFF"), t("Dundalk FC","#FFFFFF","#000000")] },
+  "Northern Ireland": { flag: "🇬🇧", continent: "Europe", teams: [t("Linfield FC","#0000FF","#FFFFFF")] },
+  "Slovakia": { flag: "🇸🇰", continent: "Europe", teams: [t("Slovan Bratislava","#0000FF","#FFFFFF")] },
+  "Slovenia": { flag: "🇸🇮", continent: "Europe", teams: [t("NK Maribor","#800080","#FFFFFF")] },
+  "Bosnia": { flag: "🇧🇦", continent: "Europe", teams: [t("FK Sarajevo","#800020","#FFFFFF"), t("FK Željezničar","#0000FF","#FFFFFF")] },
+  "Albania": { flag: "🇦🇱", continent: "Europe", teams: [t("KF Tirana","#0000FF","#FFFFFF")] },
+  "North Macedonia": { flag: "🇲🇰", continent: "Europe", teams: [t("FK Vardar","#FF0000","#000000")] },
+  "Montenegro": { flag: "🇲🇪", continent: "Europe", teams: [t("FK Budućnost","#0000FF","#FFFFFF")] },
+  "Kosovo": { flag: "🇽🇰", continent: "Europe", teams: [t("FC Ballkani","#FFD700","#000000")] },
+  "Georgia": { flag: "🇬🇪", continent: "Europe", teams: [t("Dinamo Tbilisi","#0000FF","#FFFFFF")] },
+  "Armenia": { flag: "🇦🇲", continent: "Europe", teams: [t("FC Pyunik","#FF0000","#FFFFFF")] },
+  "Azerbaijan": { flag: "🇦🇿", continent: "Europe", teams: [t("Qarabağ FK","#000000","#FFFFFF")] },
+  "Belarus": { flag: "🇧🇾", continent: "Europe", teams: [t("BATE Borisov","#FFD700","#0000FF")] },
+  "Moldova": { flag: "🇲🇩", continent: "Europe", teams: [t("Sheriff Tiraspol","#FFD700","#000000")] },
+  "Cyprus": { flag: "🇨🇾", continent: "Europe", teams: [t("APOEL Nicosia","#FF8C00","#0000FF")] },
+  "Malta": { flag: "🇲🇹", continent: "Europe", teams: [t("Ħamrun Spartans","#FF0000","#000000")] },
+  "Luxembourg": { flag: "🇱🇺", continent: "Europe", teams: [t("F91 Dudelange","#FFD700","#000000")] },
+  "Estonia": { flag: "🇪🇪", continent: "Europe", teams: [t("FC Flora","#008000","#FFFFFF")] },
+  "Latvia": { flag: "🇱🇻", continent: "Europe", teams: [t("RFS","#0000FF","#FFFFFF")] },
+  "Lithuania": { flag: "🇱🇹", continent: "Europe", teams: [t("FK Žalgiris","#008000","#FFFFFF")] },
+  "Liechtenstein": { flag: "🇱🇮", continent: "Europe", teams: [t("FC Vaduz","#FF0000","#FFFFFF")] },
+  "Andorra": { flag: "🇦🇩", continent: "Europe", teams: [t("FC Santa Coloma","#FF0000","#FFFFFF")] },
+  "San Marino": { flag: "🇸🇲", continent: "Europe", teams: [t("SP Tre Penne","#0000FF","#FFFFFF")] },
+  "Faroe Islands": { flag: "🇫🇴", continent: "Europe", teams: [t("HB Tórshavn","#FF0000","#000000")] },
+  "Gibraltar": { flag: "🇬🇮", continent: "Europe", teams: [t("Lincoln Red Imps","#FF0000","#000000")] },
+
+  // ═══════════════ SOUTH AMERICA ═══════════════
+  "Brazil": { flag: "🇧🇷", continent: "South America", teams: [t("Flamengo","#FF0000","#000000"), t("Palmeiras","#008000","#FFFFFF"), t("São Paulo FC","#FF0000","#FFFFFF"), t("Santos FC","#FFFFFF","#000000"), t("Corinthians","#000000","#FFFFFF"), t("Grêmio","#0000FF","#FFFFFF"), t("Internacional","#FF0000","#FFFFFF"), t("Fluminense","#800020","#008000")] },
+  "Argentina": { flag: "🇦🇷", continent: "South America", teams: [t("Boca Juniors","#003DA5","#FFD700"), t("River Plate","#FF0000","#FFFFFF"), t("Racing Club","#87CEEB","#FFFFFF"), t("Independiente","#FF0000","#FFFFFF"), t("San Lorenzo","#0000FF","#FF0000")] },
+  "Colombia": { flag: "🇨🇴", continent: "South America", teams: [t("Atlético Nacional","#008000","#FFFFFF"), t("Millonarios","#0000FF","#FFFFFF"), t("América de Cali","#FF0000","#FFFFFF")] },
+  "Uruguay": { flag: "🇺🇾", continent: "South America", teams: [t("Peñarol","#FFD700","#000000"), t("Club Nacional","#FF0000","#0000FF")] },
+  "Chile": { flag: "🇨🇱", continent: "South America", teams: [t("Colo-Colo","#FFFFFF","#000000"), t("Universidad de Chile","#0000FF","#FFFFFF"), t("Universidad Católica","#FFFFFF","#FF0000")] },
+  "Paraguay": { flag: "🇵🇾", continent: "South America", teams: [t("Olimpia","#FFFFFF","#000000"), t("Cerro Porteño","#0000FF","#FF0000")] },
+  "Peru": { flag: "🇵🇪", continent: "South America", teams: [t("Alianza Lima","#0000FF","#FFFFFF"), t("Universitario","#FFD700","#FF0000")] },
+  "Ecuador": { flag: "🇪🇨", continent: "South America", teams: [t("Barcelona SC","#FFD700","#000000"), t("LDU Quito","#FFFFFF","#0000FF")] },
+  "Bolivia": { flag: "🇧🇴", continent: "South America", teams: [t("Bolívar","#0000FF","#FFFFFF"), t("The Strongest","#FFD700","#000000")] },
+  "Venezuela": { flag: "🇻🇪", continent: "South America", teams: [t("Caracas FC","#FF0000","#FFFFFF"), t("Deportivo Táchira","#FFD700","#000000")] },
+
+  // ═══════════════ NORTH & CENTRAL AMERICA ═══════════════
+  "Mexico": { flag: "🇲🇽", continent: "North America", teams: [t("Club América","#FFD700","#0000FF"), t("Chivas","#FF0000","#FFFFFF"), t("Cruz Azul","#0000FF","#FFFFFF"), t("UNAM Pumas","#003DA5","#FFD700"), t("Monterrey","#0000FF","#FFFFFF"), t("Tigres UANL","#FFD700","#0000FF")] },
+  "United States": { flag: "🇺🇸", continent: "North America", teams: [t("LA Galaxy","#003DA5","#FFD700"), t("Inter Miami","#F7B5CD","#000000"), t("Atlanta United","#A41E35","#000000"), t("LAFC","#000000","#FFD700"), t("Seattle Sounders","#236192","#84BD00")] },
+  "Canada": { flag: "🇨🇦", continent: "North America", teams: [t("Toronto FC","#FF0000","#FFFFFF"), t("CF Montréal","#000000","#0000FF"), t("Vancouver Whitecaps","#00245D","#87CEEB")] },
+  "Costa Rica": { flag: "🇨🇷", continent: "North America", teams: [t("Deportivo Saprissa","#800080","#FFFFFF"), t("LD Alajuelense","#FF0000","#000000")] },
+  "Honduras": { flag: "🇭🇳", continent: "North America", teams: [t("Olimpia","#FFFFFF","#000000"), t("Motagua","#0000FF","#FFFFFF")] },
+  "Panama": { flag: "🇵🇦", continent: "North America", teams: [t("Tauro FC","#FFD700","#000000")] },
+  "Jamaica": { flag: "🇯🇲", continent: "North America", teams: [t("Arnett Gardens","#FF0000","#FFD700")] },
+  "El Salvador": { flag: "🇸🇻", continent: "North America", teams: [t("Alianza FC","#FFFFFF","#000000"), t("FAS","#FF0000","#FFFFFF")] },
+  "Guatemala": { flag: "🇬🇹", continent: "North America", teams: [t("CSD Municipal","#FF0000","#000000"), t("Comunicaciones","#FFFFFF","#0000FF")] },
+  "Trinidad and Tobago": { flag: "🇹🇹", continent: "North America", teams: [t("Defence Force","#FFD700","#008000")] },
+  "Haiti": { flag: "🇭🇹", continent: "North America", teams: [t("Violette AC","#800080","#FFFFFF")] },
+  "Cuba": { flag: "🇨🇺", continent: "North America", teams: [t("FC Villa Clara","#FF0000","#FFFFFF")] },
+  "Nicaragua": { flag: "🇳🇮", continent: "North America", teams: [t("Real Estelí","#FF0000","#FFFFFF")] },
+  "Dominican Republic": { flag: "🇩🇴", continent: "North America", teams: [t("Cibao FC","#FF8C00","#000000")] },
+  "Bermuda": { flag: "🇧🇲", continent: "North America", teams: [t("PHC Zebras","#000000","#FFFFFF")] },
+  "Suriname": { flag: "🇸🇷", continent: "North America", teams: [t("Inter Moengotapoe","#008000","#FFFFFF")] },
+  "Guyana": { flag: "🇬🇾", continent: "North America", teams: [t("Alpha United","#008000","#FFD700")] },
+  "Belize": { flag: "🇧🇿", continent: "North America", teams: [t("Verdes FC","#008000","#FFFFFF")] },
+  "Curaçao": { flag: "🇨🇼", continent: "North America", teams: [t("Jong Holland","#FF8C00","#FFFFFF")] },
+  "Barbados": { flag: "🇧🇧", continent: "North America", teams: [t("Weymouth Wales","#FFD700","#000000")] },
+  "Antigua and Barbuda": { flag: "🇦🇬", continent: "North America", teams: [t("Grenades FC","#FF0000","#000000")] },
+  "Saint Lucia": { flag: "🇱🇨", continent: "North America", teams: [t("Vieux Fort South","#0000FF","#FFD700")] },
+
+  // ═══════════════ ASIA ═══════════════
+  "Japan": { flag: "🇯🇵", continent: "Asia", teams: [t("Vissel Kobe","#8B0000","#FFFFFF"), t("Urawa Red Diamonds","#FF0000","#FFFFFF"), t("Yokohama F. Marinos","#003DA5","#FF0000"), t("Kashima Antlers","#8B0000","#FFD700")] },
+  "South Korea": { flag: "🇰🇷", continent: "Asia", teams: [t("Jeonbuk Hyundai","#008000","#FFFFFF"), t("Ulsan HD","#0000FF","#FFD700"), t("FC Seoul","#FF0000","#000000")] },
+  "Saudi Arabia": { flag: "🇸🇦", continent: "Asia", teams: [t("Al-Hilal","#0000FF","#FFFFFF"), t("Al-Ahli","#008000","#FFFFFF"), t("Al-Nassr","#FFD700","#0000FF"), t("Al-Ittihad","#FFD700","#000000")] },
+  "Iran": { flag: "🇮🇷", continent: "Asia", teams: [t("Persepolis","#FF0000","#FFFFFF"), t("Esteghlal","#0000FF","#FFFFFF"), t("Sepahan","#FFD700","#000000")] },
+  "China": { flag: "🇨🇳", continent: "Asia", teams: [t("Shanghai Port","#FF0000","#FFFFFF"), t("Beijing Guoan","#008000","#FFFFFF"), t("Guangzhou FC","#FF0000","#FFD700")] },
+  "Australia": { flag: "🇦🇺", continent: "Asia", teams: [t("Sydney FC","#87CEEB","#FFFFFF"), t("Melbourne Victory","#000080","#FFFFFF"), t("Western Sydney","#FF0000","#000000")] },
+  "Qatar": { flag: "🇶🇦", continent: "Asia", teams: [t("Al-Sadd","#FFFFFF","#000000"), t("Al-Duhail","#FF0000","#FFD700"), t("Al-Rayyan","#FF0000","#FFFFFF")] },
+  "UAE": { flag: "🇦🇪", continent: "Asia", teams: [t("Al-Ain","#800080","#FFD700"), t("Shabab Al-Ahli","#FF0000","#FFFFFF"), t("Al-Wahda","#FF0000","#000000")] },
+  "Iraq": { flag: "🇮🇶", continent: "Asia", teams: [t("Al-Shorta","#FFFFFF","#0000FF"), t("Al-Zawraa","#FFFFFF","#008000")] },
+  "Uzbekistan": { flag: "🇺🇿", continent: "Asia", teams: [t("Pakhtakor","#FFD700","#0000FF"), t("Bunyodkor","#FFFFFF","#008000")] },
+  "Thailand": { flag: "🇹🇭", continent: "Asia", teams: [t("Buriram United","#0000FF","#FFD700"), t("BG Pathum United","#800080","#FFD700")] },
+  "India": { flag: "🇮🇳", continent: "Asia", teams: [t("Mumbai City FC","#003DA5","#FF8C00"), t("ATK Mohun Bagan","#008000","#800020"), t("Bengaluru FC","#0000FF","#FF0000")] },
+  "Indonesia": { flag: "🇮🇩", continent: "Asia", teams: [t("Persib Bandung","#0000FF","#FFFFFF"), t("Persija Jakarta","#FF0000","#FFD700")] },
+  "Vietnam": { flag: "🇻🇳", continent: "Asia", teams: [t("Hà Nội FC","#800080","#FFD700")] },
+  "Malaysia": { flag: "🇲🇾", continent: "Asia", teams: [t("Johor Darul Ta'zim","#FF0000","#FFFFFF")] },
+  "Singapore": { flag: "🇸🇬", continent: "Asia", teams: [t("Lion City Sailors","#0000FF","#FFFFFF")] },
+  "Philippines": { flag: "🇵🇭", continent: "Asia", teams: [t("Kaya FC-Iloilo","#008000","#FFD700")] },
+  "Kuwait": { flag: "🇰🇼", continent: "Asia", teams: [t("Al-Qadsia","#FFD700","#0000FF")] },
+  "Bahrain": { flag: "🇧🇭", continent: "Asia", teams: [t("Riffa SC","#FF0000","#FFFFFF")] },
+  "Oman": { flag: "🇴🇲", continent: "Asia", teams: [t("Al-Seeb","#0000FF","#FFFFFF")] },
+  "Jordan": { flag: "🇯🇴", continent: "Asia", teams: [t("Al-Wehdat","#008000","#FF0000")] },
+  "Lebanon": { flag: "🇱🇧", continent: "Asia", teams: [t("Al-Ansar","#008000","#FFFFFF")] },
+  "Syria": { flag: "🇸🇾", continent: "Asia", teams: [t("Al-Wahda Damascus","#FF0000","#FFFFFF")] },
+  "Palestine": { flag: "🇵🇸", continent: "Asia", teams: [t("Hilal Al-Quds","#0000FF","#FFFFFF")] },
+  "Yemen": { flag: "🇾🇪", continent: "Asia", teams: [t("Al-Ahli Sana'a","#008000","#FFFFFF")] },
+  "Bangladesh": { flag: "🇧🇩", continent: "Asia", teams: [t("Bashundhara Kings","#FF8C00","#000000")] },
+  "Myanmar": { flag: "🇲🇲", continent: "Asia", teams: [t("Shan United","#FF0000","#FFD700")] },
+  "North Korea": { flag: "🇰🇵", continent: "Asia", teams: [t("4.25 SC","#FF0000","#FFFFFF")] },
+  "Tajikistan": { flag: "🇹🇯", continent: "Asia", teams: [t("FC Istiklol","#008000","#FFFFFF")] },
+  "Turkmenistan": { flag: "🇹🇲", continent: "Asia", teams: [t("FC Ahal","#008000","#FFFFFF")] },
+  "Kyrgyzstan": { flag: "🇰🇬", continent: "Asia", teams: [t("Dordoi Bishkek","#FF0000","#FFFFFF")] },
+  "Cambodia": { flag: "🇰🇭", continent: "Asia", teams: [t("Phnom Penh Crown","#FFD700","#0000FF")] },
+  "Laos": { flag: "🇱🇦", continent: "Asia", teams: [t("Lao Army FC","#008000","#FF0000")] },
+  "Nepal": { flag: "🇳🇵", continent: "Asia", teams: [t("Manang Marshyangdi","#0000FF","#FFFFFF")] },
+  "Afghanistan": { flag: "🇦🇫", continent: "Asia", teams: [t("De Maiwand Atalan","#008000","#FFFFFF")] },
+  "Pakistan": { flag: "🇵🇰", continent: "Asia", teams: [t("Khan Research Labs","#008000","#FFFFFF")] },
+  "Sri Lanka": { flag: "🇱🇰", continent: "Asia", teams: [t("Blue Star SC","#0000FF","#FFFFFF")] },
+  "Mongolia": { flag: "🇲🇳", continent: "Asia", teams: [t("Ulaanbaatar FC","#FF0000","#0000FF")] },
+  "Maldives": { flag: "🇲🇻", continent: "Asia", teams: [t("Maziya S&RC","#008000","#FFFFFF")] },
+  "Brunei": { flag: "🇧🇳", continent: "Asia", teams: [t("DPMM FC","#FFD700","#000000")] },
+  "Bhutan": { flag: "🇧🇹", continent: "Asia", teams: [t("Thimphu City","#FF8C00","#FFFFFF")] },
+  "Guam": { flag: "🇬🇺", continent: "Asia", teams: [t("ASC Trust Islanders","#0000FF","#FFFFFF")] },
+  "Hong Kong": { flag: "🇭🇰", continent: "Asia", teams: [t("Kitchee SC","#003DA5","#FFFFFF")] },
+  "Macau": { flag: "🇲🇴", continent: "Asia", teams: [t("Benfica de Macau","#FF0000","#FFFFFF")] },
+  "Chinese Taipei": { flag: "🇹🇼", continent: "Asia", teams: [t("Taipei Red Lions","#FF0000","#FFFFFF")] },
+
+  // ═══════════════ OCEANIA ═══════════════
+  "New Zealand": { flag: "🇳🇿", continent: "Oceania", teams: [t("Auckland FC","#000000","#FFD700"), t("Wellington Phoenix","#FFD700","#000000")] },
+  "Fiji": { flag: "🇫🇯", continent: "Oceania", teams: [t("Ba FC","#0000FF","#FFFFFF")] },
+  "Papua New Guinea": { flag: "🇵🇬", continent: "Oceania", teams: [t("Hekari United","#FF0000","#000000")] },
+  "Tahiti": { flag: "🇵🇫", continent: "Oceania", teams: [t("AS Pirae","#FF0000","#FFFFFF")] },
+  "New Caledonia": { flag: "🇳🇨", continent: "Oceania", teams: [t("AS Magenta","#FF00FF","#FFFFFF")] },
+  "Solomon Islands": { flag: "🇸🇧", continent: "Oceania", teams: [t("Solomon Warriors","#0000FF","#FFD700")] },
+  "Vanuatu": { flag: "🇻🇺", continent: "Oceania", teams: [t("Tafea FC","#FF0000","#008000")] },
+  "Samoa": { flag: "🇼🇸", continent: "Oceania", teams: [t("Lupe o le Soaga","#0000FF","#FFFFFF")] },
+  "Tonga": { flag: "🇹🇴", continent: "Oceania", teams: [t("Lotoha'apai United","#FF0000","#FFFFFF")] },
+};
+
+export const continents = ["Africa", "Europe", "South America", "North America", "Asia", "Oceania"] as const;
+
+export function getCountriesByContinent(continent: string): [string, CountryTeams][] {
+  return Object.entries(worldTeams)
+    .filter(([, data]) => data.continent === continent)
+    .sort(([a], [b]) => a.localeCompare(b));
+}
+
+export function getTotalTeams(): number {
+  return Object.values(worldTeams).reduce((sum, c) => sum + c.teams.length, 0);
+}
+
+export function getTotalCountries(): number {
+  return Object.keys(worldTeams).length;
+}
