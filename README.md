@@ -1,6 +1,6 @@
 # Apex Football ⚽
 
-**The Beautiful Game Starts Here** — [apex-football.com](https://apex-football.com)
+**24/7 Live Football** — [apex-football.com](https://apex-football.com)
 
 A modern, Nike-inspired football platform that delivers real-time football coverage across the globe. Available in **English**, **French**, and **Arabic** with full RTL support.
 

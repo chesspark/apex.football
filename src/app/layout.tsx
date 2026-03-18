@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Apex Football — The Beautiful Game Starts Here",
+  title: "Apex Football — 24/7 Live Football",
   description:
     "Track every Premier League player, every match, every tournament. Live scores, full squad databases, interactive match maps, and more. Available in English, French, and Arabic.",
   keywords: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "tournaments", "Champions League", "كرة القدم", "أبكس فوتبول",
   ],
   openGraph: {
-    title: "Apex Football — The Beautiful Game Starts Here",
+    title: "Apex Football — 24/7 Live Football",
     description: "Track every Premier League player, every match, every tournament.",
     type: "website",
     url: "https://apex-football.com",
