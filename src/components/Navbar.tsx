@@ -8,6 +8,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { Locale, localeNames, locales } from "@/lib/i18n";
 import ThemeSwitcher from "./ThemeSwitcher";
 import WeatherTime from "./WeatherTime";
+import AuthNav from "./AuthNav";
 
 export default function Navbar() {
   const { t, locale, setLocale, isRtl } = useLanguage();
@@ -30,9 +31,12 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)]/95 backdrop-blur-md border-b border-[var(--border-clr)]">
       {/* Weather/time bar */}
       <div className="border-b border-[var(--border-clr)] bg-[var(--surface)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1 flex items-center justify-between gap-3">
           <WeatherTime />
-          <ThemeSwitcher />
+          <div className="flex items-center gap-3 shrink-0">
+            <AuthNav />
+            <ThemeSwitcher />
+          </div>
         </div>
       </div>
 

@@ -41,6 +41,16 @@ export interface Player {
   club?: Club;
 }
 
+export interface Profile {
+  id: string;
+  email: string | null;
+  full_name: string | null;
+  avatar_url: string | null;
+  role: "user" | "admin" | "super_admin";
+  created_at: string;
+  updated_at: string;
+}
+
 export interface LiveMatch {
   id: number;
   home_club_id: number;
@@ -63,7 +73,22 @@ export interface Database {
     Tables: {
       clubs: { Row: Club; Insert: Omit<Club, "id">; Update: Partial<Club> };
       players: { Row: Player; Insert: Omit<Player, "id">; Update: Partial<Player> };
-      live_matches: { Row: LiveMatch; Insert: Omit<LiveMatch, "id">; Update: Partial<LiveMatch> };
+      live_matches: {
+        Row: LiveMatch;
+        Insert: Omit<LiveMatch, "id">;
+        Update: Partial<Omit<LiveMatch, "id">>;
+      };
+      profiles: {
+        Row: Profile;
+        Insert: {
+          id: string;
+          email?: string | null;
+          full_name?: string | null;
+          avatar_url?: string | null;
+          role?: "user" | "admin" | "super_admin";
+        };
+        Update: Partial<Omit<Profile, "id">>;
+      };
     };
   };
 }

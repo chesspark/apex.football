@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/server";
 import type { Database } from "@/lib/types";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,6 +11,7 @@ import * as GoldenEye from "@/lib/goldenEyePredictions";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
+  const supabase = await createClient();
   const { data } = await supabase
     .from("live_matches")
     .select("*, home_club:clubs!home_club_id(*), away_club:clubs!away_club_id(*)")
@@ -26,6 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
 export default async function MatchPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
+  const supabase = await createClient();
   const { data: match } = await supabase
     .from("live_matches")
     .select("*, home_club:clubs!home_club_id(*), away_club:clubs!away_club_id(*)")
