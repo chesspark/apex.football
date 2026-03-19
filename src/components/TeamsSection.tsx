@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { Search, ChevronDown, ChevronRight } from "lucide-react";
 import { continents, getCountriesByContinent, type CountryTeams, type TeamInfo } from "@/lib/worldTeams";
+import TeamModal from "./TeamModal";
 
 function ShirtIcon({ primary, secondary }: { primary: string; secondary: string }) {
   return (
@@ -19,9 +20,25 @@ function ShirtIcon({ primary, secondary }: { primary: string; secondary: string 
   );
 }
 
-function TeamCard({ team, country, flag }: { team: TeamInfo; country: string; flag: string }) {
+function TeamCard({
+  team,
+  country,
+  flag,
+  onSelect,
+}: {
+  team: TeamInfo;
+  country: string;
+  flag: string;
+  onSelect: () => void;
+}) {
   return (
-    <div className="flex items-center gap-3 p-3 bg-[var(--surface)] border border-[var(--border-clr)] rounded-xl hover:border-[var(--accent)]/30 transition-all group cursor-pointer">
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={onSelect}
+      onKeyDown={(e) => e.key === "Enter" && onSelect()}
+      className="flex items-center gap-3 p-3 bg-[var(--surface)] border border-[var(--border-clr)] rounded-xl hover:border-[var(--accent)]/30 transition-all group cursor-pointer"
+    >
       <ShirtIcon primary={team.primary} secondary={team.secondary} />
       <div className="flex-1 min-w-0">
         <div className="text-sm font-bold text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors truncate">
@@ -35,7 +52,15 @@ function TeamCard({ team, country, flag }: { team: TeamInfo; country: string; fl
   );
 }
 
-function CountryAccordion({ country, data }: { country: string; data: CountryTeams }) {
+function CountryAccordion({
+  country,
+  data,
+  onTeamSelect,
+}: {
+  country: string;
+  data: CountryTeams;
+  onTeamSelect: (team: TeamInfo, country: string, flag: string) => void;
+}) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -58,7 +83,13 @@ function CountryAccordion({ country, data }: { country: string; data: CountryTea
       {open && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 p-3 pt-0">
           {data.teams.map((team) => (
-            <TeamCard key={team.name} team={team} country={country} flag={data.flag} />
+            <TeamCard
+              key={team.name}
+              team={team}
+              country={country}
+              flag={data.flag}
+              onSelect={() => onTeamSelect(team, country, data.flag)}
+            />
           ))}
         </div>
       )}
@@ -69,6 +100,11 @@ function CountryAccordion({ country, data }: { country: string; data: CountryTea
 export default function TeamsSection() {
   const [activeContinent, setActiveContinent] = useState<string>("Europe");
   const [search, setSearch] = useState("");
+  const [selectedTeam, setSelectedTeam] = useState<{
+    team: TeamInfo;
+    country: string;
+    flag: string;
+  } | null>(null);
 
   const countries = useMemo(() => {
     const list = getCountriesByContinent(activeContinent);
@@ -82,7 +118,7 @@ export default function TeamsSection() {
   }, [activeContinent, search]);
 
   return (
-    <section id="teams" className="py-24 bg-[var(--background)]">
+    <section id="teams" className="py-24 bg-[var(--background)] scroll-mt-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <span className="text-[var(--accent)] text-sm font-bold uppercase tracking-widest">
@@ -125,9 +161,23 @@ export default function TeamsSection() {
         {/* Countries grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {countries.map(([name, data]) => (
-            <CountryAccordion key={name} country={name} data={data} />
+            <CountryAccordion
+              key={name}
+              country={name}
+              data={data}
+              onTeamSelect={(team, country, flag) => setSelectedTeam({ team, country, flag })}
+            />
           ))}
         </div>
+
+        {selectedTeam && (
+          <TeamModal
+            team={selectedTeam.team}
+            country={selectedTeam.country}
+            flag={selectedTeam.flag}
+            onClose={() => setSelectedTeam(null)}
+          />
+        )}
 
         {countries.length === 0 && (
           <div className="text-center py-16">

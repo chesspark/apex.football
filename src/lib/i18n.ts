@@ -89,6 +89,14 @@ const en: Dict = {
   "stats.players": "Players Tracked",
   "stats.matches": "Matches Covered",
   "stats.countries": "Countries",
+  "goldenEye.badge": "AI Prognostics Suite",
+  "goldenEye.title": "GoldenEye® Space Mode",
+  "goldenEye.subtitle":
+    "Orbital form, stellar momentum, nebula defense shroud, Poisson matrix, constellation confidence — all layers fused into one Apex verdict.",
+  "goldenEye.disclaimer":
+    "Deterministic seeded models for information only. Not betting or financial advice. Past performance does not predict future results.",
+  "goldenEye.upcoming": "Upcoming — full orbital scan",
+  "goldenEye.noMatches": "No upcoming matches in the database. Sync Supabase to enable scans.",
 };
 
 const fr: Dict = {
@@ -134,6 +142,14 @@ const fr: Dict = {
   "stats.players": "Joueurs Suivis",
   "stats.matches": "Matchs Couverts",
   "stats.countries": "Pays",
+  "goldenEye.badge": "Suite IA Pronostics",
+  "goldenEye.title": "GoldenEye® Mode Espace",
+  "goldenEye.subtitle":
+    "Forme orbitale, momentum stellaire, voile défensif nébuleux, matrice Poisson, constellation de confiance — fusion Apex.",
+  "goldenEye.disclaimer":
+    "Modèles déterministes à titre informatif uniquement. Pas un conseil de pari ni financier.",
+  "goldenEye.upcoming": "À venir — scan orbital complet",
+  "goldenEye.noMatches": "Aucun match à venir en base. Synchronisez Supabase pour activer les scans.",
 };
 
 const ar: Dict = {

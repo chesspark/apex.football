@@ -4,6 +4,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
   --color-accent-green: var(--accent-green);
   --color-surface: var(--surface);
   --color-surface-hover: var(--surface-hover);
@@ -13,38 +14,57 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Default: Apex — Silver 20%, Black 20%, Sunflower Yellow 20%, Pastel Green 40% */
 :root,
-[data-theme="light"] {
-  --background: #FFFFFF;
-  --foreground: #111111;
+[data-theme="apex"] {
+  --background: #E8F5E9;
+  --foreground: #1a1a1a;
   --accent: #E6B800;
-  --accent-green: #8FBF8F;
-  --surface: #F5FAF5;
-  --surface-hover: #EAF5EA;
+  --accent-fg: #1a1a1a;
+  --accent-green: #98D8A8;
+  --surface: #D4EDDA;
+  --surface-hover: #C3E6CB;
+  --border-clr: rgba(0, 0, 0, 0.1);
+  --muted: #6B7280;
+}
+
+/* Focus mode — minimal, distraction-free */
+[data-theme="focus"] {
+  --background: #F5F5F5;
+  --foreground: #171717;
+  --accent: #737373;
+  --accent-fg: #FFFFFF;
+  --accent-green: #737373;
+  --surface: #E5E5E5;
+  --surface-hover: #D4D4D4;
   --border-clr: rgba(0, 0, 0, 0.08);
-  --muted: #555555;
+  --muted: #737373;
 }
 
-[data-theme="dark"] {
-  --background: #0A0A0A;
-  --foreground: #ededed;
-  --accent: #FFD700;
-  --accent-green: #A8D8A8;
-  --surface: rgba(24, 24, 27, 0.5);
-  --surface-hover: rgba(39, 39, 42, 0.5);
-  --border-clr: rgba(255, 255, 255, 0.05);
-  --muted: #71717a;
+/* High contrast */
+[data-theme="highContrast"] {
+  --background: #FFFFFF;
+  --foreground: #000000;
+  --accent: #000000;
+  --accent-fg: #FFFFFF;
+  --accent-green: #000000;
+  --surface: #F0F0F0;
+  --surface-hover: #E0E0E0;
+  --border-clr: #000000;
+  --muted: #333333;
 }
 
-[data-theme="color"] {
-  --background: #0a0a1a;
-  --foreground: #ededed;
-  --accent: #FFD700;
-  --accent-green: #7BEDA8;
-  --surface: rgba(30, 25, 60, 0.6);
-  --surface-hover: rgba(50, 40, 90, 0.6);
-  --border-clr: rgba(255, 215, 0, 0.08);
-  --muted: #9090b0;
+/* Colorful theme */
+[data-theme="colorful"] {
+  --background: #1a1a2e;
+  --foreground: #eaeaea;
+  --accent: #FF6B6B;
+  --accent-fg: #1a1a2e;
+  --accent-green: #4ECDC4;
+  --surface: rgba(78, 205, 196, 0.15);
+  --surface-hover: rgba(78, 205, 196, 0.25);
+  --border-clr: rgba(255, 107, 107, 0.2);
+  --muted: #a0a0c0;
 }
 
 * {
@@ -65,6 +85,39 @@ body {
 
 [dir="rtl"] {
   font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+/* ─── Live indicator blink (red) ─── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.animate-blink {
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+/* ─── Golden pyramid + falcon ─── */
+@keyframes apex-shimmer {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.15); }
+}
+.apex-pyramid-shimmer {
+  animation: apex-shimmer 3s ease-in-out infinite;
+}
+@keyframes apex-pulse {
+  0%, 100% { opacity: 0.95; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(1.15); }
+}
+.apex-apex-pulse {
+  animation: apex-pulse 2s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes apex-falcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.apex-falcon-float {
+  animation: apex-falcon 2.5s ease-in-out infinite;
 }
 
 /* ─── Animations ─── */

@@ -36,7 +36,7 @@ export default function LiveMatchesTicker() {
       >
         {isLive && (
           <div className="absolute top-3 right-3 flex items-center gap-1.5">
-            <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+            <span className="w-2 h-2 bg-red-500 rounded-full animate-blink" />
             <span className="text-[10px] font-bold text-red-400 uppercase">{t("match.live")}</span>
           </div>
         )}

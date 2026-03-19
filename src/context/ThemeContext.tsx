@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
 
-export type Theme = "dark" | "light" | "color";
+export type Theme = "apex" | "focus" | "highContrast" | "colorful";
 
 interface ThemeContextType {
   theme: Theme;
@@ -10,19 +10,27 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  theme: "dark",
+  theme: "apex",
   setTheme: () => {},
 });
 
+const VALID_THEMES: Theme[] = ["apex", "focus", "highContrast", "colorful"];
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("apex");
 
   useEffect(() => {
-    const stored = localStorage.getItem("apex-theme") as Theme | null;
-    if (stored && ["dark", "light", "color"].includes(stored)) {
-      setTheme(stored);
-      document.documentElement.setAttribute("data-theme", stored);
-    }
+    const stored = localStorage.getItem("apex-theme");
+    const migrated: Record<string, Theme> = {
+      light: "apex",
+      dark: "focus",
+      color: "colorful",
+    };
+    const theme = (stored && VALID_THEMES.includes(stored as Theme))
+      ? (stored as Theme)
+      : migrated[stored || ""] || "apex";
+    setTheme(theme);
+    document.documentElement.setAttribute("data-theme", theme);
   }, []);
 
   const handleSetTheme = (t: Theme) => {

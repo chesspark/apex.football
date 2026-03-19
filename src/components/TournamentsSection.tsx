@@ -54,7 +54,7 @@ export default function TournamentsSection() {
   const upcoming = tournaments.filter((t) => t.status === "upcoming");
 
   return (
-    <section id="tournaments" className="relative py-24 bg-[var(--background)]">
+    <section id="tournaments" className="relative py-24 bg-[var(--background)] scroll-mt-32">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

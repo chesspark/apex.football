@@ -4,6 +4,7 @@ import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { FavoritesProvider } from "@/context/FavoritesContext";
 import { ThemeProvider } from "@/context/ThemeContext";
+import PortalProChat from "@/components/PortalProChat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,12 +39,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr" data-theme="light" suppressHydrationWarning>
+    <html lang="en" dir="ltr" data-theme="apex" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
           <LanguageProvider>
             <FavoritesProvider>
               {children}
+              <PortalProChat />
             </FavoritesProvider>
           </LanguageProvider>
         </ThemeProvider>

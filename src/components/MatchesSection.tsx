@@ -34,7 +34,7 @@ function MatchCard({ match }: { match: Match }) {
       {/* Live pulse */}
       {isLive && (
         <div className="absolute top-4 right-4 flex items-center gap-1.5">
-          <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+          <span className="w-2 h-2 bg-red-500 rounded-full animate-blink" />
           <span className="text-xs font-bold text-red-400 uppercase">{t("match.live")}</span>
         </div>
       )}
@@ -99,7 +99,7 @@ export default function MatchesSection() {
         {liveMatches.length > 0 && (
           <div className="mb-12" id="live">
             <div className="flex items-center gap-2 mb-6">
-              <span className="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse" />
+              <span className="w-2.5 h-2.5 bg-red-500 rounded-full animate-blink" />
               <h3 className="text-lg font-bold uppercase tracking-wider text-red-400">
                 {t("nav.live")}
               </h3>

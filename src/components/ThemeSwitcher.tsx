@@ -1,12 +1,13 @@
 "use client";
 
-import { Sun, Moon, Palette } from "lucide-react";
+import { Zap, Focus, Contrast, Palette } from "lucide-react";
 import { useTheme, type Theme } from "@/context/ThemeContext";
 
-const themes: { id: Theme; icon: typeof Sun; label: string }[] = [
-  { id: "dark", icon: Moon, label: "Dark" },
-  { id: "light", icon: Sun, label: "Light" },
-  { id: "color", icon: Palette, label: "Color" },
+const themes: { id: Theme; icon: typeof Zap; label: string }[] = [
+  { id: "apex", icon: Zap, label: "Apex (default)" },
+  { id: "focus", icon: Focus, label: "Focus" },
+  { id: "highContrast", icon: Contrast, label: "High Contrast" },
+  { id: "colorful", icon: Palette, label: "Colorful" },
 ];
 
 export default function ThemeSwitcher() {
@@ -21,7 +22,7 @@ export default function ThemeSwitcher() {
           title={label}
           className={`p-1.5 rounded-full transition-all ${
             theme === id
-              ? "bg-[var(--accent)] text-black"
+              ? "bg-[var(--accent)] text-[var(--accent-fg)]"
               : "text-[var(--muted)] hover:text-[var(--foreground)]"
           }`}
         >

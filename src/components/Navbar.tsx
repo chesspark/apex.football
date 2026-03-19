@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Globe, Search, Zap } from "lucide-react";
+import { Menu, X, Globe, Search } from "lucide-react";
+import ApexLogoMark from "./ApexLogoMark";
 import { useLanguage } from "@/context/LanguageContext";
 import { Locale, localeNames, locales } from "@/lib/i18n";
 import ThemeSwitcher from "./ThemeSwitcher";
@@ -15,12 +16,14 @@ export default function Navbar() {
 
   const navLinks = [
     { key: "nav.home", href: "/" },
-    { key: "nav.players", href: "#players" },
-    { key: "nav.tournaments", href: "#tournaments" },
-    { label: "Teams", href: "#teams" },
-    { label: "Shop", href: "#shop" },
+    { key: "nav.players", href: "/#players" },
+    { key: "nav.tournaments", href: "/#tournaments" },
+    { label: "Teams", href: "/#teams" },
+    { label: "Shop", href: "/#shop" },
     { label: "🇲🇦 Maroc", href: "/morocco" },
-    { key: "nav.live", href: "#live" },
+    { key: "nav.live", href: "/#live" },
+    { label: "GoldenEye", href: "/#golden-eye" },
+    { label: "Ambassadeur", href: "/apply" },
   ];
 
   return (
@@ -35,12 +38,14 @@ export default function Navbar() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 bg-gradient-to-br from-[var(--accent)] to-[var(--accent-green)] rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
-              <Zap className="w-5 h-5 text-black" strokeWidth={2.5} />
-            </div>
+          <Link
+            href="/"
+            className="flex items-center gap-2 group"
+            aria-label="Apex Football — accueil"
+          >
+            <ApexLogoMark size={36} className="transition-transform group-hover:scale-110" />
             <span className="text-[var(--foreground)] font-black text-xl tracking-tight uppercase">
-              Apex<span className="text-[var(--accent)]">.</span>
+              Apex<span className="text-[#D4AF37]">.</span>Football
             </span>
           </Link>
 

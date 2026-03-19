@@ -98,7 +98,7 @@ export default function Globe3D() {
   }, [allWithCoords]);
 
   return (
-    <section className="relative py-16 bg-[var(--background)] overflow-hidden">
+    <section id="live" className="relative py-16 bg-[var(--background)] overflow-hidden scroll-mt-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center">
           <span className="text-[var(--accent)] text-sm font-bold uppercase tracking-widest">
@@ -158,7 +158,7 @@ export default function Globe3D() {
           {/* Live matches panel */}
           <div className="flex-1 w-full">
             <div className="flex items-center gap-2 mb-4">
-              <span className="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse" />
+              <span className="w-2.5 h-2.5 bg-red-500 rounded-full animate-blink" />
               <h3 className="text-lg font-bold uppercase tracking-wider text-red-400">
                 {t("match.live")} — {liveMatches.length} {liveMatches.length === 1 ? "match" : "matches"}
               </h3>
@@ -179,7 +179,7 @@ export default function Globe3D() {
                     }`}
                   >
                     <div className="absolute top-3 right-3 flex items-center gap-1.5">
-                      <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+                      <span className="w-2 h-2 bg-red-500 rounded-full animate-blink" />
                       <span className="text-[10px] font-bold text-red-400 uppercase">
                         {match.minute}&apos;
                       </span>
