@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import AmbassadorsSection from "@/components/AmbassadorsSection";
 import RotatingEarthBanner from "@/components/RotatingEarthBanner";
 import FeaturedNews from "@/components/FeaturedNews";
 import Globe3DWrapper from "@/components/Globe3DWrapper";
@@ -16,6 +17,7 @@ export default function Home() {
     <main className="min-h-screen bg-[var(--background)]">
       <Navbar />
       <Hero />
+      <AmbassadorsSection />
       <RotatingEarthBanner />
       <FeaturedNews />
       <Globe3DWrapper />

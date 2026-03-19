@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { Zap } from "lucide-react";
 
@@ -40,6 +41,7 @@ export default function Footer() {
               )}
               <li><a href="#teams" className="text-sm text-[var(--muted)] hover:text-[var(--accent)] transition-colors">Teams</a></li>
               <li><a href="#shop" className="text-sm text-[var(--muted)] hover:text-[var(--accent)] transition-colors">Shop</a></li>
+              <li><Link href="/morocco" className="text-sm text-[var(--muted)] hover:text-[var(--accent)] transition-colors">🇲🇦 Maroc</Link></li>
             </ul>
           </div>
 

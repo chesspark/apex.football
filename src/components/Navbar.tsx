@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Menu, X, Globe, Search, Zap } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { Locale, localeNames, locales } from "@/lib/i18n";
@@ -13,11 +14,12 @@ export default function Navbar() {
   const [langOpen, setLangOpen] = useState(false);
 
   const navLinks = [
-    { key: "nav.home", href: "#" },
+    { key: "nav.home", href: "/" },
     { key: "nav.players", href: "#players" },
     { key: "nav.tournaments", href: "#tournaments" },
     { label: "Teams", href: "#teams" },
     { label: "Shop", href: "#shop" },
+    { label: "🇲🇦 Maroc", href: "/morocco" },
     { key: "nav.live", href: "#live" },
   ];
 
@@ -33,25 +35,25 @@ export default function Navbar() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
-          <a href="#" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2 group">
             <div className="w-9 h-9 bg-gradient-to-br from-[var(--accent)] to-[var(--accent-green)] rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
               <Zap className="w-5 h-5 text-black" strokeWidth={2.5} />
             </div>
             <span className="text-[var(--foreground)] font-black text-xl tracking-tight uppercase">
               Apex<span className="text-[var(--accent)]">.</span>
             </span>
-          </a>
+          </Link>
 
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href + (link.key || link.label)}
                 href={link.href}
                 className="px-3 py-2 text-sm font-semibold uppercase tracking-wider text-[var(--muted)] hover:text-[var(--accent)] transition-colors relative group"
               >
                 {link.key ? t(link.key) : link.label}
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[var(--accent)] transition-all group-hover:w-full" />
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -104,14 +106,14 @@ export default function Navbar() {
         <div className="md:hidden bg-[var(--background)] border-t border-[var(--border-clr)]">
           <div className="px-4 py-4 space-y-1">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href + (link.key || link.label)}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
                 className="block px-4 py-3 text-base font-semibold uppercase tracking-wider text-[var(--muted)] hover:text-[var(--accent)] hover:bg-[var(--surface)] rounded-lg transition-colors"
               >
                 {link.key ? t(link.key) : link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
