@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed": "node --env-file=.env.local scripts/seed.mjs"
+    "seed": "node --env-file=.env.local scripts/seed.mjs",
+    "test": "npm run lint && npm run build",
+    "ci": "npm run lint && npm run build"
   },
   "dependencies": {
     "@supabase/ssr": "^0.6.1",

@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { createClient } from "@/lib/supabase/server";
 import { rpcGetPublicProfile } from "@/lib/supabase/rpc-public-profile";
+import SocialShareBar from "@/components/social/SocialShareBar";
 import { Heart, Globe, ExternalLink } from "lucide-react";
 
 type Props = { params: Promise<{ username: string }> };
@@ -36,6 +37,10 @@ export default async function PublicProfilePage({ params }: Props) {
 
   if (error || !data?.[0]) notFound();
   const p = data[0];
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://apex.football";
+  const canonicalUrl = `${base.replace(/\/$/, "")}/u/${p.username}`;
+  const shareTitle = `${p.display_name || p.username} — Apex Football`;
+  const shareDesc = p.bio || `Profil fan @${p.username} sur Apex Football.`;
 
   return (
     <main className="min-h-screen bg-[var(--background)]">
@@ -70,6 +75,15 @@ export default async function PublicProfilePage({ params }: Props) {
             </div>
 
             {p.bio && <p className="mt-6 text-[var(--foreground)] leading-relaxed whitespace-pre-wrap">{p.bio}</p>}
+
+            <div className="mt-8 p-4 rounded-2xl border border-[var(--border-clr)] bg-[var(--background)]/40">
+              <SocialShareBar
+                profileUrl={canonicalUrl}
+                title={shareTitle}
+                description={shareDesc}
+                bio={p.bio}
+              />
+            </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
               {p.favorite_club_slug && (

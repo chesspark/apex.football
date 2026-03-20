@@ -5,6 +5,7 @@ import Link from "next/link";
 import { User, Globe, Heart, Eye, EyeOff, CheckCircle2, Loader2 } from "lucide-react";
 import type { MastodonteClubSeed } from "@/lib/mastodontes-data";
 import type { Profile } from "@/lib/types";
+import SocialShareBar from "@/components/social/SocialShareBar";
 import { updateSocialProfile, type ProfileActionState } from "./actions";
 
 const initialState: ProfileActionState = { ok: false };
@@ -175,14 +176,22 @@ export default function ProfileForm({ profile, clubs, email, publicSiteBase }: P
         </form>
 
         {profile?.username && (
-          <div className="mt-8 pt-8 border-t border-[var(--border-clr)]">
-            <p className="text-xs text-[var(--muted)] mb-2">Ta page publique :</p>
-            <Link
-              href={`/u/${profile.username}`}
-              className="text-sm font-bold text-[var(--accent)] hover:underline break-all"
-            >
-              {publicSiteBase.replace(/\/$/, "")}/u/{profile.username}
-            </Link>
+          <div className="mt-8 pt-8 border-t border-[var(--border-clr)] space-y-6">
+            <div>
+              <p className="text-xs text-[var(--muted)] mb-2">Ta page publique :</p>
+              <Link
+                href={`/u/${profile.username}`}
+                className="text-sm font-bold text-[var(--accent)] hover:underline break-all"
+              >
+                {publicSiteBase.replace(/\/$/, "")}/u/{profile.username}
+              </Link>
+            </div>
+            <SocialShareBar
+              profileUrl={`${publicSiteBase.replace(/\/$/, "")}/u/${profile.username}`}
+              title={`${profile.display_name || profile.full_name || profile.username} — Apex Football`}
+              description={profile.bio || `Profil fan @${profile.username}`}
+              bio={profile.bio}
+            />
           </div>
         )}
       </div>
