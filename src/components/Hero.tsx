@@ -39,20 +39,20 @@ export default function Hero() {
         </p>
 
         <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a
+          <Link
             href="/#players"
             className="group relative inline-flex items-center gap-2 px-6 py-3 bg-[var(--accent)] text-black font-bold uppercase tracking-wider text-xs rounded-full hover:scale-105 transition-all duration-300"
           >
             {t("hero.cta")}
             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-          </a>
-          <a
+          </Link>
+          <Link
             href="/#results"
             className="group inline-flex items-center gap-2 px-6 py-3 bg-transparent text-[var(--foreground)] font-bold uppercase tracking-wider text-xs rounded-full border border-[var(--border-clr)] hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-all duration-300"
           >
             <Play className="w-3.5 h-3.5" />
             {t("hero.cta2")}
-          </a>
+          </Link>
         </div>
 
         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">

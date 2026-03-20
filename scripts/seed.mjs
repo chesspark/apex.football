@@ -11,7 +11,7 @@ const SERVICE_ROLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhY
 
 const supabase = createClient(SUPABASE_URL, SERVICE_ROLE_KEY);
 
-// ============ SCHEMA ============
+// ============ SCHEMA (optionnel — non appelé par défaut ; exécuter le schéma via SQL Editor) ============
 async function runSchema() {
   console.log("Running schema...");
   const sql = readFileSync(join(__dirname, "schema.sql"), "utf8");
@@ -622,9 +622,7 @@ async function seedPlayers(clubRows) {
 async function main() {
   console.log("=== Atlas Football Database Seed ===\n");
 
-  // First try to run schema via SQL
-  console.log("Step 1: Creating tables via SQL...");
-  const schemaSQL = readFileSync(join(__dirname, "schema.sql"), "utf8");
+  console.log("Step 1: Schema — appliquer scripts/schema.sql via SQL Editor Supabase si nécessaire.");
 
   const resp = await fetch(`${SUPABASE_URL}/rest/v1/`, {
     headers: { apikey: SERVICE_ROLE_KEY, Authorization: `Bearer ${SERVICE_ROLE_KEY}` },

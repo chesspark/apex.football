@@ -25,6 +25,7 @@ export default function Navbar() {
     { key: "nav.live", href: "/#live" },
     { label: "GoldenEye", href: "/#golden-eye" },
     { label: "Ambassadeur", href: "/apply" },
+    { label: "Mastodontes", href: "/mastodontes" },
   ];
 
   return (

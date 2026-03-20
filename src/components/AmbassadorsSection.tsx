@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import Link from "next/link";
 import { Award, ExternalLink } from "lucide-react";
 
@@ -9,12 +9,10 @@ const AMBASSADORS = [
   { name: "Abdellah", delay: 200 },
 ];
 
-export default function AmbassadorsSection() {
-  const [mounted, setMounted] = useState(false);
+const emptySubscribe = () => () => {};
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+export default function AmbassadorsSection() {
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   return (
     <section className="relative py-20 overflow-hidden bg-gradient-to-b from-[var(--background)] via-[var(--surface)]/30 to-[var(--background)]">

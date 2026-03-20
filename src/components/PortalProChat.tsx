@@ -16,7 +16,7 @@ export default function PortalProChat() {
     {
       role: "assistant",
       content:
-        "Apex Pro Chat — modes Simple / Intermediate / Advanced (style ICQ). Pose ta question football. Configure XAI_API_KEY sur le serveur pour Grok live.",
+        "Apex Pro Chat — Apex Football Intelligence (modes Simple / Intermédiaire / Avancé). Pose ta question foot : tactique, données, navigation. Pour Grok en live, configure XAI_API_KEY sur le serveur.",
     },
   ]);
   const [loading, setLoading] = useState(false);

@@ -8,13 +8,6 @@ import { useLanguage } from "@/context/LanguageContext";
 
 type MatchWithClubs = LiveMatch & { home_club: Club; away_club: Club };
 
-function latLngToAngles(lat: number, lng: number): [number, number] {
-  return [
-    Math.PI - ((lng * Math.PI) / 180 - Math.PI / 2),
-    (lat * Math.PI) / 180,
-  ];
-}
-
 export default function Globe3D() {
   const canvasRef = useRef<HTMLCanvasElement>(null!);
   const pointerInteracting = useRef<number | null>(null);
