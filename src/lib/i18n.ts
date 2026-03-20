@@ -48,6 +48,8 @@ type Dict = Record<string, string>;
 
 const en: Dict = {
   "nav.home": "Home",
+  "nav.about": "About",
+  "nav.countries": "Countries",
   "nav.players": "Players",
   "nav.tournaments": "Tournaments",
   "nav.results": "Results",
@@ -63,6 +65,10 @@ const en: Dict = {
   "section.topPerformers": "TOP PERFORMERS",
   "section.news": "BREAKING NEWS",
   "section.worldwide": "Worldwide Coverage",
+  "section.partners": "Partners",
+  "section.partnersTitle": "Our partners",
+  "section.partnersLead": "Organizations we proudly collaborate with.",
+  "partners.seminaireDesc": "Professional seminars & corporate events platform.",
   "player.goals": "Goals",
   "player.assists": "Assists",
   "player.rating": "Rating",
@@ -97,10 +103,23 @@ const en: Dict = {
     "Deterministic seeded models for information only. Not betting or financial advice. Past performance does not predict future results.",
   "goldenEye.upcoming": "Upcoming — full orbital scan",
   "goldenEye.noMatches": "No upcoming matches in the database. Sync Supabase to enable scans.",
+  "instagram.dockHint": "Posts & reels — tap to preview",
+  "instagram.close": "Close",
+  "instagram.panelTitle": "Apex Football on Instagram",
+  "instagram.openProfile": "Open Instagram profile",
+  "instagram.featureFeed": "Follow for matchday posts, stories, behind-the-scenes and reels from Apex Football.",
+  "instagram.embedHint":
+    "Optional: set NEXT_PUBLIC_INSTAGRAM_POST_URLS in your env with comma-separated post URLs to show embedded posts here.",
+  "instagram.bulletPosts": "Feed posts & matchday visuals",
+  "instagram.bulletStories": "Stories & instant updates",
+  "instagram.bulletReels": "Reels & highlights",
+  "instagram.openInApp": "View posts on Instagram",
 };
 
 const fr: Dict = {
   "nav.home": "Accueil",
+  "nav.about": "À propos",
+  "nav.countries": "Pays",
   "nav.players": "Joueurs",
   "nav.tournaments": "Tournois",
   "nav.results": "Résultats",
@@ -116,6 +135,10 @@ const fr: Dict = {
   "section.topPerformers": "MEILLEURS JOUEURS",
   "section.news": "DERNIÈRES NOUVELLES",
   "section.worldwide": "Couverture Mondiale",
+  "section.partners": "Partenaires",
+  "section.partnersTitle": "Nos partenaires",
+  "section.partnersLead": "Des acteurs avec qui nous sommes fiers de collaborer.",
+  "partners.seminaireDesc": "Séminaires professionnels & événements corporate.",
   "player.goals": "Buts",
   "player.assists": "Passes D.",
   "player.rating": "Note",
@@ -150,10 +173,23 @@ const fr: Dict = {
     "Modèles déterministes à titre informatif uniquement. Pas un conseil de pari ni financier.",
   "goldenEye.upcoming": "À venir — scan orbital complet",
   "goldenEye.noMatches": "Aucun match à venir en base. Synchronisez Supabase pour activer les scans.",
+  "instagram.dockHint": "Posts & reels — ouvrir l’aperçu",
+  "instagram.close": "Fermer",
+  "instagram.panelTitle": "Apex Football sur Instagram",
+  "instagram.openProfile": "Ouvrir le profil Instagram",
+  "instagram.featureFeed": "Abonnez-vous aux posts matchday, stories, coulisses et reels Apex Football.",
+  "instagram.embedHint":
+    "Optionnel : définissez NEXT_PUBLIC_INSTAGRAM_POST_URLS (URLs de posts séparées par des virgules) pour afficher des embeds ici.",
+  "instagram.bulletPosts": "Posts fil & visuels matchday",
+  "instagram.bulletStories": "Stories & actus flash",
+  "instagram.bulletReels": "Reels & temps forts",
+  "instagram.openInApp": "Voir les posts sur Instagram",
 };
 
 const ar: Dict = {
   "nav.home": "الرئيسية",
+  "nav.about": "من نحن",
+  "nav.countries": "الدول",
   "nav.players": "اللاعبون",
   "nav.tournaments": "البطولات",
   "nav.results": "النتائج",
@@ -169,6 +205,10 @@ const ar: Dict = {
   "section.topPerformers": "أفضل اللاعبين",
   "section.news": "آخر الأخبار",
   "section.worldwide": "تغطية عالمية",
+  "section.partners": "شركاء",
+  "section.partnersTitle": "شركاؤنا",
+  "section.partnersLead": "جهات نفتخر بالتعاون معها.",
+  "partners.seminaireDesc": "منصة للندوات المهنية والفعاليات المؤسسية.",
   "player.goals": "أهداف",
   "player.assists": "تمريرات حاسمة",
   "player.rating": "التقييم",
@@ -195,6 +235,17 @@ const ar: Dict = {
   "stats.players": "لاعب متابع",
   "stats.matches": "مباراة مغطاة",
   "stats.countries": "دول",
+  "instagram.dockHint": "منشورات وريلز — اضغط للمعاينة",
+  "instagram.close": "إغلاق",
+  "instagram.panelTitle": "أبكس فوتبول على إنستغرام",
+  "instagram.openProfile": "فتح ملف إنستغرام",
+  "instagram.featureFeed": "تابع منشورات يوم المباراة، القصص، الكواليس وريلز أبكس فوتبول.",
+  "instagram.embedHint":
+    "اختياري: عيّن NEXT_PUBLIC_INSTAGRAM_POST_URLS بروابط المنشورات مفصولة بفواصل لعرض التضمينات هنا.",
+  "instagram.bulletPosts": "منشورات الخلاصة ومشاهد يوم المباراة",
+  "instagram.bulletStories": "قصص وتحديثات فورية",
+  "instagram.bulletReels": "ريلز ولقطات مميزة",
+  "instagram.openInApp": "عرض المنشورات على إنستغرام",
 };
 
 const es: Dict = {
@@ -1680,5 +1731,7 @@ export function getDictionary(locale: Locale): Dict {
 }
 
 export function t(dict: Dict, key: string): string {
-  return dict[key] || key;
+  const v = dict[key];
+  if (v != null && v !== "") return v;
+  return en[key] ?? key;
 }

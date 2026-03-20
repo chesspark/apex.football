@@ -1,6 +1,6 @@
 # Apex Football ⚽
 
-**24/7 Live Football** — [apex-football.com](https://apex-football.com)
+**24/7 Live Football** — [apex.football](https://apex.football)
 
 A modern, Nike-inspired football platform that delivers real-time football coverage across the globe. Available in **English**, **French**, and **Arabic** with full RTL support.
 
@@ -12,6 +12,14 @@ A modern, Nike-inspired football platform that delivers real-time football cover
 - **Breaking News** — Latest football headlines from around the world
 - **Multilingual** — Full support for English, French, and Arabic (RTL)
 - **Nike-Inspired Design** — Bold typography, dark theme, clean modern UI
+
+## Docs (strategy & deploy)
+
+- **[Master prompt for Cursor AI](docs/CURSOR_MASTER_PROMPT_APEX_FOOTBALL.md)** — vision, phases, env, instructions aligned with this repo  
+- [Deploy: Vercel + Cloudflare](docs/DEPLOY_VERCEL_CLOUDFLARE.md) · [Product roadmap](docs/PRODUCT_ROADMAP_SOCIAL_ENCYCLOPEDIA.md) · [Auth Google/Apple](docs/AUTH_APPLE_GOOGLE_APEX_FOOTBALL.md)  
+- **[Press / Founder kit](docs/press_kit.md)** — one-pager, bio, Q&A, 30-day content calendar, media checklist  
+- **[Top 100 seed JSON](docs/SEEDS_TOP100.md)** — `seeds/top100.json` (`npm run seed:top100:json`)  
+- **[Audit — links & features](docs/AUDIT_LINKS_FEATURES.md)** — routes, anchors, external URLs, gaps
 
 ## Tech Stack
 

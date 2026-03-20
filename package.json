@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "seed": "node --env-file=.env.local scripts/seed.mjs",
+    "seed:top100:json": "node scripts/build-top100-json.mjs",
     "test": "npm run lint && npm run build",
     "ci": "npm run lint && npm run build"
   },
@@ -15,6 +16,7 @@
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.99.2",
     "cobe": "^0.6.5",
+    "i18n-iso-countries": "^7.14.0",
     "lucide-react": "^0.577.0",
     "next": "16.1.7",
     "pg": "^8.20.0",

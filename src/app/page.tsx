@@ -18,6 +18,7 @@ import GoldenEyePredictions from "@/components/GoldenEyePredictions";
 import Footer from "@/components/Footer";
 import FavoritesBar from "@/components/FavoritesBar";
 import BecomeAmbassadorSection from "@/components/BecomeAmbassadorSection";
+import PartnersSection from "@/components/PartnersSection";
 
 export default function Home() {
   return (
@@ -51,6 +52,7 @@ export default function Home() {
       <ShopSection />
       <GoldenEyePredictions />
       <BecomeAmbassadorSection />
+      <PartnersSection />
       <Footer />
       <FavoritesBar />
     </main>

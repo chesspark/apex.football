@@ -23,7 +23,7 @@ export default function ApplyAmbassadorPage() {
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nCountry: ${form.country}\nCity: ${form.city}\nSocial / links: ${form.social}\n\nPitch:\n${form.message}`
     );
-    window.location.href = `mailto:ambassadors@apex-football.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:ambassadors@apex.football?subject=${subject}&body=${body}`;
     setSent(true);
   }
 
