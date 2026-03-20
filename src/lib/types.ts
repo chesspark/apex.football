@@ -47,6 +47,13 @@ export interface Profile {
   full_name: string | null;
   avatar_url: string | null;
   role: "user" | "admin" | "super_admin";
+  username: string | null;
+  display_name: string | null;
+  bio: string | null;
+  favorite_club_slug: string | null;
+  website_url: string | null;
+  profile_public: boolean;
+  onboarding_completed: boolean;
   created_at: string;
   updated_at: string;
 }
@@ -68,6 +75,17 @@ export interface LiveMatch {
   away_club?: Club;
 }
 
+export type PublicProfileRow = {
+  user_id: string;
+  username: string;
+  display_name: string | null;
+  avatar_url: string | null;
+  bio: string | null;
+  favorite_club_slug: string | null;
+  website_url: string | null;
+  created_at: string;
+};
+
 export interface Database {
   public: {
     Tables: {
@@ -86,8 +104,28 @@ export interface Database {
           full_name?: string | null;
           avatar_url?: string | null;
           role?: "user" | "admin" | "super_admin";
+          username?: string | null;
+          display_name?: string | null;
+          bio?: string | null;
+          favorite_club_slug?: string | null;
+          website_url?: string | null;
+          profile_public?: boolean;
+          onboarding_completed?: boolean;
         };
-        Update: Partial<Omit<Profile, "id">>;
+        Update: {
+          email?: string | null;
+          full_name?: string | null;
+          avatar_url?: string | null;
+          role?: "user" | "admin" | "super_admin";
+          username?: string | null;
+          display_name?: string | null;
+          bio?: string | null;
+          favorite_club_slug?: string | null;
+          website_url?: string | null;
+          profile_public?: boolean;
+          onboarding_completed?: boolean;
+          updated_at?: string;
+        };
       };
     };
   };

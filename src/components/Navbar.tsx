@@ -26,6 +26,7 @@ export default function Navbar() {
     { label: "GoldenEye", href: "/#golden-eye" },
     { label: "Ambassadeur", href: "/apply" },
     { label: "Mastodontes", href: "/mastodontes" },
+    { label: "Profil", href: "/profile" },
   ];
 
   return (

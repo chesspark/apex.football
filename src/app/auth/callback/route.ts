@@ -1,11 +1,14 @@
 import { NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
+import { getServerSiteUrl } from "@/lib/auth/site-url";
 
 export async function GET(request: Request) {
-  const { searchParams, origin } = new URL(request.url);
+  const { searchParams } = new URL(request.url);
   const code = searchParams.get("code");
-  const next = searchParams.get("next")?.startsWith("/") ? searchParams.get("next")! : "/";
+  const nextRaw = searchParams.get("next");
+  const next = nextRaw?.startsWith("/") ? nextRaw : "/";
+  const origin = getServerSiteUrl(request);
 
   if (code) {
     const cookieStore = await cookies();

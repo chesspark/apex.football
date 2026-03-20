@@ -36,15 +36,14 @@ npm run build
 npm start
 ```
 
-## Auth Google & backoffice
+## Auth — Google, Apple ID & profil social (**apex.football**)
 
-1. **Supabase** — Authentication → Providers → activer **Google** (Client ID / Secret depuis Google Cloud Console).  
-   URL de redirection autorisée : `https://<PROJECT_REF>.supabase.co/auth/v1/callback`
-2. **SQL** — Exécuter `supabase/migrations/001_profiles.sql` dans l’éditeur SQL Supabase (table `profiles` + trigger à l’inscription).
-3. **Variables** (voir `.env.example`) :
-   - `ADMIN_EMAILS` — emails autorisés en admin (séparés par des virgules), accès immédiat au `/backoffice`
-   - `SUPABASE_SERVICE_ROLE_KEY` — recommandé pour écriture matchs (contourne RLS) et liste des utilisateurs
-4. **Routes** : `/login` (connexion Google), `/auth/callback`, `/backoffice` (dashboard, matchs, utilisateurs, réglages).
+Le site peut être servi sur un domaine **.football** (TLD comme `.com`). Voir **`docs/AUTH_APPLE_GOOGLE_APEX_FOOTBALL.md`** pour les URLs de callback et Vercel.
+
+1. **Supabase** — Authentication → Providers : **Google** et **Apple** (identifiants Apple Developer + Google Cloud OAuth).
+2. **SQL** — Dans l’ordre : `001_profiles.sql` → `003_profiles_social.sql` (colonnes sociales + RPC `get_public_profile`). Les migrations `002_*` restent optionnelles selon les features.
+3. **Variables** (`.env.example`) : `NEXT_PUBLIC_SITE_URL` (ex. `https://apex.football` en prod), clés Supabase, `ADMIN_EMAILS`, `SUPABASE_SERVICE_ROLE_KEY` si besoin.
+4. **Routes** : `/login` (Google + Apple), `/auth/callback`, `/profile` (édition profil fan), `/u/[username]` (fiche publique), `/backoffice`.
 
 ## License
 

@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
-import { LayoutDashboard, LogIn, LogOut } from "lucide-react";
+import { LayoutDashboard, LogIn, LogOut, UserCircle } from "lucide-react";
 
 type Me = {
   user: { email?: string; name?: string } | null;
+  profile: { username?: string | null; display_name?: string | null } | null;
   isAdmin: boolean;
 };
 
@@ -37,7 +38,7 @@ export default function AuthNav() {
   async function signOut() {
     const supabase = createClient();
     await supabase.auth.signOut();
-    setMe({ user: null, isAdmin: false });
+    setMe({ user: null, profile: null, isAdmin: false });
     window.location.reload();
   }
 
@@ -59,6 +60,16 @@ export default function AuthNav() {
 
   return (
     <div className="flex items-center gap-2 flex-wrap justify-end">
+      <Link
+        href="/profile"
+        className="inline-flex items-center gap-1 text-xs font-bold text-[var(--foreground)] hover:text-[var(--accent)]"
+        title="Profil social"
+      >
+        <UserCircle className="w-3.5 h-3.5" />
+        <span className="hidden sm:inline max-w-[100px] truncate">
+          {me.profile?.username ? `@${me.profile.username}` : "Profil"}
+        </span>
+      </Link>
       {me.isAdmin && (
         <Link
           href="/backoffice"
@@ -68,7 +79,7 @@ export default function AuthNav() {
           Backoffice
         </Link>
       )}
-      <span className="text-[10px] text-[var(--muted)] max-w-[120px] truncate hidden sm:inline">
+      <span className="text-[10px] text-[var(--muted)] max-w-[120px] truncate hidden md:inline">
         {me.user.email}
       </span>
       <button
