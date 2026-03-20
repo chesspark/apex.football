@@ -152,6 +152,21 @@ export default function InstagramGlobalDock() {
             </div>
 
             <div className="overflow-y-auto flex-1 px-4 py-4 space-y-4">
+              <div className="rounded-2xl border border-[#d4af37]/45 bg-gradient-to-r from-[#1f1608] via-[#2a1d0c] to-[#3a270f] p-4 text-[#f8e7ba] shadow-lg">
+                <p className="text-sm font-semibold leading-relaxed">
+                  {t("instagram.prizeBanner")}
+                </p>
+                <a
+                  href={APEX_INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center gap-2 rounded-lg bg-[#d4af37] px-3 py-2 text-xs font-black uppercase tracking-wide text-[#1a1304] hover:brightness-105 transition"
+                >
+                  <InstagramGlyph className="w-4 h-4" />
+                  {t("instagram.prizeCta")}
+                </a>
+              </div>
+
               <p className="text-sm text-[var(--muted)] leading-relaxed">{t("instagram.featureFeed")}</p>
 
               {postUrls.length > 0 ? (

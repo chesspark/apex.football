@@ -113,6 +113,9 @@ const en: Dict = {
   "instagram.bulletPosts": "Feed posts & matchday visuals",
   "instagram.bulletStories": "Stories & instant updates",
   "instagram.bulletReels": "Reels & highlights",
+  "instagram.prizeBanner":
+    "Follow @apexfootball.world64 and win the big prize: 2 x tickets for the 2026 World Football Cup Final.",
+  "instagram.prizeCta": "Follow now to enter",
   "instagram.openInApp": "View posts on Instagram",
 };
 
@@ -183,6 +186,9 @@ const fr: Dict = {
   "instagram.bulletPosts": "Posts fil & visuels matchday",
   "instagram.bulletStories": "Stories & actus flash",
   "instagram.bulletReels": "Reels & temps forts",
+  "instagram.prizeBanner":
+    "Suis @apexfootball.world64 et gagne le grand prix : 2 x billets pour la finale de la Coupe du monde de football 2026.",
+  "instagram.prizeCta": "Suivre maintenant",
   "instagram.openInApp": "Voir les posts sur Instagram",
 };
 
@@ -245,6 +251,9 @@ const ar: Dict = {
   "instagram.bulletPosts": "منشورات الخلاصة ومشاهد يوم المباراة",
   "instagram.bulletStories": "قصص وتحديثات فورية",
   "instagram.bulletReels": "ريلز ولقطات مميزة",
+  "instagram.prizeBanner":
+    "تابع @apexfootball.world64 واربح الجائزة الكبرى: تذكرتان (2) لنهائي كأس العالم لكرة القدم 2026.",
+  "instagram.prizeCta": "تابع الآن للمشاركة",
   "instagram.openInApp": "عرض المنشورات على إنستغرام",
 };
 
