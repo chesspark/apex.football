@@ -13,6 +13,14 @@ CREATE TABLE IF NOT EXISTS public.social_posts (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+-- Compatibilité si une version antérieure (002) a déjà créé social_posts
+ALTER TABLE public.social_posts
+  ADD COLUMN IF NOT EXISTS author_username TEXT,
+  ADD COLUMN IF NOT EXISTS author_display_name TEXT,
+  ADD COLUMN IF NOT EXISTS author_avatar_url TEXT,
+  ADD COLUMN IF NOT EXISTS club_slug TEXT,
+  ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
+
 CREATE INDEX IF NOT EXISTS social_posts_created_idx ON public.social_posts (created_at DESC);
 CREATE INDEX IF NOT EXISTS social_posts_author_idx ON public.social_posts (author_id);
 CREATE INDEX IF NOT EXISTS social_posts_club_slug_idx ON public.social_posts (club_slug) WHERE club_slug IS NOT NULL;

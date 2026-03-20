@@ -61,6 +61,15 @@ Le site peut être servi sur un domaine **.football** (TLD comme `.com`). Voir *
 3. **Variables** (`.env.example`) : `NEXT_PUBLIC_SITE_URL` (ex. `https://apex.football` en prod), clés Supabase, `ADMIN_EMAILS`, `SUPABASE_SERVICE_ROLE_KEY` si besoin.
 4. **Routes** : `/login` (Google + Apple), `/auth/callback`, `/profile` (édition profil fan), `/u/[username]` (fiche publique), `/backoffice`.
 
+## Pro Chat providers (OpenClaw + Grok)
+
+- `/api/chat` utilise un fallback provider côté serveur :
+  - `OPENCLAW_API_KEY` (prioritaire, endpoint OpenAI-compatible)
+  - sinon `XAI_API_KEY` ou `GROK_API_KEY`
+- Variables utiles dans `.env.example` :
+  - `OPENCLAW_API_KEY`, `OPENCLAW_MODEL`, `OPENCLAW_API_URL`
+  - `XAI_API_KEY`, `GROK_MODEL`
+
 ## License
 
 MIT
