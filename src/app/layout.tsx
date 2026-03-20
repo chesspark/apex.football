@@ -5,6 +5,7 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import { FavoritesProvider } from "@/context/FavoritesContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import PortalProChat from "@/components/PortalProChat";
+import YoutubePlaylistPlayer from "@/components/YoutubePlaylistPlayer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,7 @@ export default function RootLayout({
           <LanguageProvider>
             <FavoritesProvider>
               {children}
+              <YoutubePlaylistPlayer />
               <PortalProChat />
             </FavoritesProvider>
           </LanguageProvider>
