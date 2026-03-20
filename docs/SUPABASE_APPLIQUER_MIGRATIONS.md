@@ -65,3 +65,42 @@ Tu dois voir les 4 tables (après `002`).
 | `relation "auth.users" does not exist` | Tu n’es pas sur une instance Supabase (Auth) — utilise toujours le SQL Editor du **projet** Supabase. |
 | `policy already exists` | Migration déjà partiellement appliquée : adapter le script (DROP POLICY IF EXISTS) ou ignorer si les objets existent déjà. |
 | Erreur sur `live_matches` | **Normal pour `002`** : la FK vers `live_matches` a été retirée ; seule une ancienne version du fichier pourrait encore la référencer. |
+
+---
+
+## Script `scripts/seed.mjs` (données clubs / matchs)
+
+Variables **obligatoires** :
+
+- `SUPABASE_SERVICE_ROLE_KEY` — **Settings → API → service_role** (ne jamais commit).
+- `SUPABASE_URL` **ou** `NEXT_PUBLIC_SUPABASE_URL` — URL du projet (`https://xxx.supabase.co`).
+
+### Option 1 — Fichier `.env.local` (recommandé, Node 20+)
+
+Copie `.env.example` vers `.env.local`, remplis les clés, puis :
+
+```bash
+cd /chemin/vers/apexfootball
+npm run seed
+```
+
+(`package.json` utilise `node --env-file=.env.local scripts/seed.mjs`.)
+
+### Option 2 — Variables dans le shell
+
+```bash
+export SUPABASE_URL="https://TON_PROJET.supabase.co"
+export SUPABASE_SERVICE_ROLE_KEY="eyJ..."
+node scripts/seed.mjs
+```
+
+(Si tu n’exportes que `NEXT_PUBLIC_SUPABASE_URL`, ça suffit aussi à la place de `SUPABASE_URL`.)
+
+### Si `npm run seed` échoue avec « unknown option --env-file »
+
+Mets à jour Node **≥ 20.6** ou lance sans `--env-file` :
+
+```bash
+set -a && source .env.local && set +a   # ou export manuel
+node scripts/seed.mjs
+```
