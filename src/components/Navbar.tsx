@@ -7,7 +7,6 @@ import ApexLogoMark from "./ApexLogoMark";
 import { useLanguage } from "@/context/LanguageContext";
 import { Locale, localeNames, locales } from "@/lib/i18n";
 import ThemeSwitcher from "./ThemeSwitcher";
-import WeatherTime from "./WeatherTime";
 import AuthNav from "./AuthNav";
 import { useCountrySubdomain } from "@/context/CountrySubdomainContext";
 import { APEX_INSTAGRAM_URL } from "@/lib/instagram";
@@ -47,7 +46,12 @@ export default function Navbar() {
       {/* Weather/time bar */}
       <div className="border-b border-[var(--border-clr)] bg-[var(--surface)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1 flex items-center justify-between gap-3">
-          <WeatherTime />
+          <div className="flex items-center gap-2 min-w-0">
+            <ApexLogoMark size={20} className="rounded-md" />
+            <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wide text-[var(--foreground)] truncate">
+              Apex.football — Official Banner
+            </p>
+          </div>
           <div className="flex items-center gap-3 shrink-0">
             <a
               href={APEX_INSTAGRAM_URL}

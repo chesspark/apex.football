@@ -8,16 +8,16 @@ type Props = {
 };
 
 /**
- * Marque Apex.Football : pyramidion + sigle APEX en or (dégradé or).
+ * Marque Apex.Football : triangle rouge (logo final).
  */
 export default function ApexLogoMark({ size = 36, className = "" }: Props) {
   const uid = useId().replace(/:/g, "");
-  const grad = `apexGold-${uid}`;
-  const gradDark = `apexGoldDark-${uid}`;
+  const gradMain = `apexRed-${uid}`;
+  const gradShade = `apexRedShade-${uid}`;
 
   return (
     <div
-      className={`rounded-lg flex items-center justify-center overflow-hidden border border-[#D4AF37]/90 bg-gradient-to-br from-[#0a0a0a] via-[#141414] to-[#050505] shadow-[inset_0_1px_0_rgba(255,215,0,0.15)] shrink-0 ${className}`}
+      className={`rounded-lg flex items-center justify-center overflow-hidden border border-[#ef4444]/70 bg-gradient-to-br from-[#190606] via-[#260909] to-[#110404] shadow-[inset_0_1px_0_rgba(248,113,113,0.25)] shrink-0 ${className}`}
       style={{ width: size, height: size }}
       aria-hidden
     >
@@ -28,29 +28,24 @@ export default function ApexLogoMark({ size = 36, className = "" }: Props) {
         fill="none"
       >
         <defs>
-          <linearGradient id={grad} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FFF8DC" />
-            <stop offset="25%" stopColor="#FFD700" />
-            <stop offset="70%" stopColor="#DAA520" />
-            <stop offset="100%" stopColor="#B8860B" />
+          <linearGradient id={gradMain} x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FCA5A5" />
+            <stop offset="45%" stopColor="#EF4444" />
+            <stop offset="100%" stopColor="#B91C1C" />
           </linearGradient>
-          <linearGradient id={gradDark} x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#8B6914" />
-            <stop offset="100%" stopColor="#FFD700" />
+          <linearGradient id={gradShade} x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#7F1D1D" />
+            <stop offset="100%" stopColor="#EF4444" />
           </linearGradient>
         </defs>
-        {/* Pyramidion */}
-        <path fill={`url(#${grad})`} d="M18 5 L27 16 L9 16 Z" />
-        <path fill={`url(#${gradDark})`} opacity={0.55} d="M9 16 L18 22 L27 16 Z" />
-        <path fill="#FFD700" opacity={0.35} d="M18 22 L14 16 L22 16 Z" />
-        {/* Apex du pyramidion — reflet */}
-        <circle cx="18" cy="9" r="1.2" fill="#FFFACD" opacity={0.9} />
-        {/* APEX — micro lettrage or */}
+        <path fill={`url(#${gradMain})`} d="M18 5 L30 28 H6 Z" />
+        <path fill={`url(#${gradShade})`} opacity={0.48} d="M18 10 L25 24 H11 Z" />
+        <path fill="#FEE2E2" opacity={0.9} d="M18 8.5 L20 12.2 H16 Z" />
         <text
           x="18"
           y="31"
           textAnchor="middle"
-          fill={`url(#${grad})`}
+          fill="#FCA5A5"
           fontSize="7"
           fontWeight="900"
           fontFamily="system-ui, sans-serif"
