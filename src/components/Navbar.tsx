@@ -10,6 +10,7 @@ import ThemeSwitcher from "./ThemeSwitcher";
 import AuthNav from "./AuthNav";
 import { useCountrySubdomain } from "@/context/CountrySubdomainContext";
 import { APEX_INSTAGRAM_URL } from "@/lib/instagram";
+import { APEX_MOTTO } from "@/lib/brand";
 
 function InstagramNavIcon({ className }: { className?: string }) {
   return (
@@ -46,10 +47,10 @@ export default function Navbar() {
       {/* Weather/time bar */}
       <div className="border-b border-[var(--border-clr)] bg-[var(--surface)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1 flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2 min-w-0">
+          <div className="flex items-center gap-2 min-w-0" title={APEX_MOTTO}>
             <ApexLogoMark size={20} className="rounded-md" />
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wide text-[var(--foreground)] truncate">
-              Apex.football — Official Banner
+              24/7 live tracking of your 1000+ football teams and players around the globe.
             </p>
           </div>
           <div className="flex items-center gap-3 shrink-0">
@@ -74,6 +75,7 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-2 group"
             aria-label="Apex Football — accueil"
+            title={APEX_MOTTO}
           >
             <ApexLogoMark size={36} className="transition-transform group-hover:scale-110" />
             <span className="text-[var(--foreground)] font-black text-xl tracking-tight uppercase">

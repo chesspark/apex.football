@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowRight, Play } from "lucide-react";
+import { APEX_MOTTO } from "@/lib/brand";
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -19,6 +20,7 @@ export default function Hero() {
         <Link
           href="/#live"
           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 mb-6 hover:border-[var(--accent)]/40 transition-colors"
+          title={APEX_MOTTO}
         >
           <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-blink" />
           <span className="text-[var(--accent)] text-xs font-semibold tracking-wider uppercase">

@@ -1,16 +1,18 @@
 "use client";
 
 import { useId } from "react";
+import { APEX_MOTTO } from "@/lib/brand";
 
 type Props = {
   size?: number;
   className?: string;
+  titleText?: string;
 };
 
 /**
  * Marque Apex.Football : triangle rouge (logo final).
  */
-export default function ApexLogoMark({ size = 36, className = "" }: Props) {
+export default function ApexLogoMark({ size = 36, className = "", titleText = APEX_MOTTO }: Props) {
   const uid = useId().replace(/:/g, "");
   const gradMain = `apexRed-${uid}`;
   const gradShade = `apexRedShade-${uid}`;
@@ -19,6 +21,7 @@ export default function ApexLogoMark({ size = 36, className = "" }: Props) {
     <div
       className={`rounded-lg flex items-center justify-center overflow-hidden border border-[#ef4444]/70 bg-gradient-to-br from-[#190606] via-[#260909] to-[#110404] shadow-[inset_0_1px_0_rgba(248,113,113,0.25)] shrink-0 ${className}`}
       style={{ width: size, height: size }}
+      title={titleText}
       aria-hidden
     >
       <svg
