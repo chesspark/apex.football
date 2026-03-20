@@ -48,7 +48,7 @@ export default async function RootLayout({
   const countrySite = rawSub ? resolveCountrySubdomain(rawSub) : null;
 
   return (
-    <html lang="en" dir="ltr" data-theme="apex" suppressHydrationWarning>
+    <html lang="en" dir="ltr" data-theme="babolat" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <CountrySubdomainProvider value={countrySite}>
           <ThemeProvider>
