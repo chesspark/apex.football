@@ -2,7 +2,13 @@
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
 
-export type Theme = "apex" | "focus" | "highContrast" | "colorful";
+export type Theme =
+  | "apex"
+  | "focus"
+  | "highContrast"
+  | "colorful"
+  | "proMode"
+  | "goldenEye";
 
 interface ThemeContextType {
   theme: Theme;
@@ -14,7 +20,7 @@ const ThemeContext = createContext<ThemeContextType>({
   setTheme: () => {},
 });
 
-const VALID_THEMES: Theme[] = ["apex", "focus", "highContrast", "colorful"];
+const VALID_THEMES: Theme[] = ["apex", "focus", "highContrast", "colorful", "proMode", "goldenEye"];
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("apex");

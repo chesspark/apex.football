@@ -26,6 +26,9 @@
   --surface-hover: #e6dac1;
   --border-clr: rgba(58, 44, 20, 0.16);
   --muted: #6f6550;
+  --texture-a: rgba(120, 95, 45, 0.05);
+  --texture-b: rgba(120, 95, 45, 0.04);
+  --texture-c: rgba(70, 55, 25, 0.025);
 }
 
 /* Focus mode — minimal, distraction-free */
@@ -39,6 +42,9 @@
   --surface-hover: #D4D4D4;
   --border-clr: rgba(0, 0, 0, 0.08);
   --muted: #737373;
+  --texture-a: rgba(90, 90, 90, 0.03);
+  --texture-b: rgba(90, 90, 90, 0.02);
+  --texture-c: rgba(60, 60, 60, 0.015);
 }
 
 /* High contrast */
@@ -52,6 +58,9 @@
   --surface-hover: #E0E0E0;
   --border-clr: #000000;
   --muted: #333333;
+  --texture-a: rgba(0, 0, 0, 0);
+  --texture-b: rgba(0, 0, 0, 0);
+  --texture-c: rgba(0, 0, 0, 0);
 }
 
 /* Colorful theme */
@@ -65,6 +74,41 @@
   --surface-hover: rgba(78, 205, 196, 0.25);
   --border-clr: rgba(255, 107, 107, 0.2);
   --muted: #a0a0c0;
+  --texture-a: rgba(0, 0, 0, 0);
+  --texture-b: rgba(0, 0, 0, 0);
+  --texture-c: rgba(0, 0, 0, 0);
+}
+
+/* Pro Mode — dark tactical desk */
+[data-theme="proMode"] {
+  --background: #0f141b;
+  --foreground: #e6edf6;
+  --accent: #2ec4b6;
+  --accent-fg: #061014;
+  --accent-green: #5eead4;
+  --surface: #161d27;
+  --surface-hover: #1d2734;
+  --border-clr: rgba(120, 160, 210, 0.2);
+  --muted: #9db0c6;
+  --texture-a: rgba(46, 196, 182, 0.04);
+  --texture-b: rgba(46, 196, 182, 0.03);
+  --texture-c: rgba(22, 36, 52, 0.35);
+}
+
+/* Golden Eye — premium gold + deep black */
+[data-theme="goldenEye"] {
+  --background: #0d0b07;
+  --foreground: #f7f1df;
+  --accent: #d4af37;
+  --accent-fg: #1a1304;
+  --accent-green: #b9942a;
+  --surface: #17130b;
+  --surface-hover: #211b10;
+  --border-clr: rgba(212, 175, 55, 0.26);
+  --muted: #c8b78d;
+  --texture-a: rgba(212, 175, 55, 0.05);
+  --texture-b: rgba(212, 175, 55, 0.03);
+  --texture-c: rgba(42, 31, 13, 0.3);
 }
 
 * {
@@ -79,12 +123,12 @@ html {
 body {
   background-color: var(--background);
   background-image:
-    radial-gradient(circle at 20% 15%, rgba(120, 95, 45, 0.05), transparent 30%),
-    radial-gradient(circle at 80% 75%, rgba(120, 95, 45, 0.04), transparent 28%),
+    radial-gradient(circle at 20% 15%, var(--texture-a), transparent 30%),
+    radial-gradient(circle at 80% 75%, var(--texture-b), transparent 28%),
     repeating-linear-gradient(
       0deg,
-      rgba(70, 55, 25, 0.025) 0px,
-      rgba(70, 55, 25, 0.025) 1px,
+      var(--texture-c) 0px,
+      var(--texture-c) 1px,
       transparent 1px,
       transparent 4px
     );

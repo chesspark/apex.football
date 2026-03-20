@@ -1,6 +1,6 @@
 "use client";
 
-import { Zap, Focus, Contrast, Palette } from "lucide-react";
+import { Zap, Focus, Contrast, Palette, Shield, Sparkles } from "lucide-react";
 import { useTheme, type Theme } from "@/context/ThemeContext";
 
 const themes: { id: Theme; icon: typeof Zap; label: string }[] = [
@@ -8,6 +8,8 @@ const themes: { id: Theme; icon: typeof Zap; label: string }[] = [
   { id: "focus", icon: Focus, label: "Focus" },
   { id: "highContrast", icon: Contrast, label: "High Contrast" },
   { id: "colorful", icon: Palette, label: "Colorful" },
+  { id: "proMode", icon: Shield, label: "Pro Mode" },
+  { id: "goldenEye", icon: Sparkles, label: "Golden Eye" },
 ];
 
 export default function ThemeSwitcher() {
