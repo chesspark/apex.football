@@ -24,14 +24,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Apex Football — 24/7 Live Football",
   description:
-    "Track every Premier League player, every match, every tournament. Live scores, full squad databases, interactive match maps, and more. Available in English, French, and Arabic.",
+    "24/7 live tracking to follow your favorite football teams: scores, stats, reports, AI.",
   keywords: [
     "football", "soccer", "Premier League", "live scores", "player stats",
     "tournaments", "Champions League", "كرة القدم", "أبكس فوتبول",
   ],
   openGraph: {
     title: "Apex Football — 24/7 Live Football",
-    description: "Track every Premier League player, every match, every tournament.",
+    description: "24/7 live tracking to follow your favorite football teams: scores, stats, reports, AI.",
     type: "website",
     url: "https://apex.football",
     siteName: "Apex Football",

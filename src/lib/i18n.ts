@@ -56,7 +56,8 @@ const en: Dict = {
   "nav.live": "Live",
   "hero.title": "24/7 LIVE",
   "hero.subtitle": "FOOTBALL",
-  "hero.description": "Track every player, every match, every tournament. Apex Football brings you the pulse of world football in real time.",
+  "hero.description":
+    "24/7 live tracking to follow your favorite football teams: scores, stats, reports, AI.",
   "hero.cta": "Explore Now",
   "hero.cta2": "Live Scores",
   "section.trending": "TRENDING PLAYERS",
