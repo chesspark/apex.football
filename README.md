@@ -36,6 +36,14 @@ npm run build
 npm start
 ```
 
+## Tests (lint + build)
+
+```bash
+npm run test
+```
+
+Voir aussi `docs/SOCIAL_SHARE_QA.md` pour le QA profil / partage (WhatsApp, Telegram, Instagram).
+
 ## Auth — Google, Apple ID & profil social (**apex.football**)
 
 Le site peut être servi sur un domaine **.football** (TLD comme `.com`). Voir **`docs/AUTH_APPLE_GOOGLE_APEX_FOOTBALL.md`** pour les URLs de callback et Vercel.
